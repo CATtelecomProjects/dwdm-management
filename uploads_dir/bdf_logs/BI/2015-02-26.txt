@@ -1,0 +1,21 @@
+Filesystem          kbytes    used   avail %used Mounted on
+/dev/vg00/lvol3     753664  531328  220664   71% /
+/dev/vg00/lvol1     576595  231016  287919   45% /stand
+/dev/vg01/lvol2    524288000 96719931 400847127   19% /work
+/dev/vg01/lvol6    41943040   27361 39295957    0% /version
+/dev/vg00/lvol7    5996544 3040816 2934640   51% /var
+/dev/vg01/lvol4    62914560 3275856 55911724    6% /utilloc
+/dev/vg00/lvol6    6422528 2892144 3502904   45% /usr
+/dev/vg01/lvol5    157286400   55632 147403852    0% /user
+/dev/vg00/lvol5    1048576   63048  980120    6% /tmp
+/dev/vg01/lvol3    209715200 118594600 85425909   58% /temp
+/dev/vg00/lvol9    41943040 5835177 33851134   15% /sas
+/dev/vg00/lvol10   41943040 2325374 37145690    6% /sas/install
+/dev/vg00/lvol4    7766016 5619320 2129968   73% /opt
+/dev/vg01/lvol7    41943040   27361 39295957    0% /logs
+/dev/vg00/lvol8     229376   13400  214296    6% /home
+/dev/vg01/lvol1    1048576000 807870851 225668783   78% /data
+/dev/vg01/lvol8    41943040 2273673 37190066    6% /config
+/dev/vg02/lvol1    31457280 6858509 23070442   23% /app/sas/software
+/dev/vg02/lvol2    20971520  260603 19417351    1% /app/sas/config
+/dev/vg02/lvol3    52412416 38987774 12585662   76% /app/depot

@@ -1,0 +1,14 @@
+/* general styles */
+
+.jqte-test {
+	display:block;
+	margin:0 0 5px;
+	padding:2px;
+	width:95%;
+	background:#FFF;
+	border:#AAA 1px solid;
+	font-size:11px;
+}
+textarea.jqte-test, div.jqte-test, span.jqte-test {
+	min-height:100px;
+}

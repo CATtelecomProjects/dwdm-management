@@ -125,7 +125,7 @@ $percentCritical = 90;
 			
 	  ?>
   <tr>
-    <td rowspan="8" ><?=$rs_data[$i]['holiday'] == "Y" ? "&nbsp;<img src='./images/icons-holiday.png' align='absmiddle'> ( ".$rs_data[$i]['remarks'].")<br />": ""?>
+    <td rowspan="8" ><?=$rs_data[$i]['holiday'] == "Y" ? "&nbsp;<img src='./images/icons-holiday.png' align='absmiddle'> (".$rs_data[$i]['remarks'].")<br />": ""?>
     &nbsp;<strong>วันที่ : </strong><u><?=$check_date_str?></u> <?=$key_status?><br />
       &nbsp;<strong>เวลา :</strong>&nbsp;<u><span style="cursor:help" class="tooltips" title="เวลาที่บันทึกครั้งแรก"><?=$check_time?></span></u>  <strong>น.</strong><br />
       &nbsp;<strong>ผู้รับผิดชอบ</strong> :<br />

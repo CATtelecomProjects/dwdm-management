@@ -151,9 +151,7 @@ $tbl->openTable();
 		 }
 		 ?>
           </label></td>
-        <td align="center"><?=$date_start;?>
--
-  <?=$date_finish;?></td>
+        <td align="center"><?=$date_start;?> -   <?=$date_finish;?></td>
         <td><?=$rs_list[$i]['user_desc']?></td>
         <td><?=$rs_list[$i]['remarks'];?></td>
         <td align="center"><img src="./images/<?=$checklist_status[$rs_list[$i]['check_status']]['icon']?>" style='cursor:help' class="tooltips" title="<?=$checklist_status[$rs_list[$i]['check_status']]['title']?><br><i><?=$unlock_desc?></i>"></td>

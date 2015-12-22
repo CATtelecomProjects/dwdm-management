@@ -91,29 +91,41 @@ $lines_BI = @file($files_BI);
 		//echo "Line #<b>{$line_num}</b> : " . $line . "<br />\n";
 	}
 }
-/*
-print "<pre>";
+
+
+/*print "<pre>";
 print_r($data_DI);
-print "</pre>";
-*/
+print "</pre>";*/
+
 
 // #$data_DI[row_no][array_order]
 //DI
 $arrData['DI']['ftproot'] = trim(str_replace('%','',$data_DI[15][9])); 
 $arrData['DI']['data'] 	  = trim(str_replace('%','',$data_DI[18][9]));
 $arrData['DI']['data1']   = trim(str_replace('%','',$data_DI[17][9]));
-$arrData['DI']['data2']   = trim(str_replace('%','',$data_DI[16][9]));
+
+$tmpDIData2    = trim(str_replace('%','',$data_DI[16][9]));
+$arrData['DI']['data2']   =  $tmpDIData2 == "" ?  trim(str_replace('%','',$data_DI[16][11])) : $tmpDIData2;
+
 
 $tmpDIWork    = trim(str_replace('%','',$data_DI[3][9]));
 $arrData['DI']['work']    = $tmpDIWork == "" ?  trim(str_replace('%','',$data_DI[3][10])) : $tmpDIWork;
 
 $arrData['DI']['archive'] = trim(str_replace('%','',$data_DI[20][9]));
-$arrData['DI']['utilloc']  = trim(str_replace('%','',$data_DI[5][10]));
+
+$tmpDIutilloc    = trim(str_replace('%','',$data_DI[5][10]));
+$arrData['DI']['utilloc']    = $tmpDIutilloc == "" ?  trim(str_replace('%','',$data_DI[5][11])) : $tmpDIutilloc;
+//$arrData['DI']['utilloc']  = trim(str_replace('%','',$data_DI[5][10]));
+
 $arrData['DI']['var']      = trim(str_replace('%','',$data_DI[4][9]));
   
  //BI
-$arrData['BI']['data']     =  trim(str_replace('%','',$data_BI[16][9])); 
-$arrData['BI']['work']    =  trim(str_replace('%','',$data_BI[3][9]));
+$tmpBIData    = trim(str_replace('%','',$data_BI[16][9]));
+$arrData['BI']['data']    = $tmpBIData == "" ?  trim(str_replace('%','',$data_BI[16][10])) : $tmpBIData;
+//$arrData['BI']['data']     =  trim(str_replace('%','',$data_BI[16][9])); 
+$tmpBIWork    = trim(str_replace('%','',$data_BI[3][10]));
+$arrData['BI']['work']    = $tmpBIWork == "/work" ?  trim(str_replace('%','',$data_BI[3][9])) : $tmpBIWork;
+//$arrData['BI']['work']    =  trim(str_replace('%','',$data_BI[3][9]));
 $arrData['BI']['utilloc']   =  trim(str_replace('%','',$data_BI[6][10]));
 $arrData['BI']['var']       =  trim(str_replace('%','',$data_BI[5][9]));
 

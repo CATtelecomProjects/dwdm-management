@@ -40,8 +40,8 @@ $auth = new Auth();
 $auth->db =$db;
 $auth->user_id = $_SESSION['sess_user_id'];
 
-$div_graph = "&nbsp;<span class='btnGraph'> <button>กราฟรายเดือน</button></span>";
-$div_graph .= "<span class='btnGraphYear'> <button>กราฟรายปี</button></span>";
+$div_graph = "&nbsp;<span class='btnGraph'><button>กราฟรายวัน</button></span>";
+$div_graph .= "<span class='btnGraphYear'><button>กราฟรายเดือน</button></span>";
 $div_report = "<span class='btnReport'><button>รายงาน</button></span>";
 
 
@@ -52,7 +52,7 @@ if($isChief && !isset($_GET['page'])){
 	$tbl->menu = MENU_ACTION."  ".$div_graph." ".$div_report;	
 	$sql_option = "";
 }else{
-	$tbl->menu = $div_graph." ".$div_report;		
+	$tbl->menu = $div_graph."".$div_report;		
 }
 
 if(isset($_GET['page'])){
@@ -183,7 +183,7 @@ $unlock_desc = $rs_list['unlock_desc'];
   <tr>
     <th height="20" colspan="2" align="center" class="ui-state-focus"><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="18%">     
+        <td width="15%">     
         <?php
 		if($isOper && ($check_status == "K" || $check_status == "P"  || $check_status == "U")){
 		echo "<button name='keyin' class='keyin'>เลือกวันที่เพื่อบันทึกข้อมูล</button>";
@@ -196,6 +196,7 @@ $unlock_desc = $rs_list['unlock_desc'];
         <?=$ThaiMonthFull[$date_finish[1]];?>        
         <?=($date_finish[2]+543);?></u>&nbsp;โดย : <b><?=$rs_list['user_desc']?></b> , สถานะ : &nbsp;<img src="./images/<?=$checklist_status[$rs_list['check_status']]['icon']?>" class="tooltips" style='cursor:help' title="<?=$checklist_status[$rs_list['check_status']]['title']?><br><i><?=$unlock_desc?></i>" align="absmiddle" id="img_status">
         <input name="date_start" type="hidden" id="date_start" value="<?=$rs_list['date_start']?>" />
+         <input name="current_date" type="hidden" id="current_date" value="<?=date('d-m-Y')?>" />
         <input name="date_end" id="date_end" type="hidden" value="<?=$rs_list['date_finish']?>" />
         <input name="check_id" id="check_id" type="hidden" value="<?=$rs_list['check_id']?>" />
          <input name="check_status" id="check_status" type="hidden" value="<?=$rs_list['check_status']?>" />
@@ -203,14 +204,15 @@ $unlock_desc = $rs_list['unlock_desc'];
         <input name="isChief" id="isChief" type="hidden" value="<?=$isChief?>" />
         <input name="isOper" id="isOper" type="hidden" value="<?=$isOper?>" />
         </td>
-        <td width="12%" align="right"><div id="divAction">
+        <td width="15%" align="right"><div id="divAction">
         <?php
 		//if(!$isChief && $check_status == "K"){
       // 		 echo "<span name='btnSend' id='btnSend' class='btnAction' ref='S'>ส่งผลการตรวจสอบ</span>";		
 		//}else
 		 if($isChief && $check_status == "S"){
-			 echo "<span name='btnApprove' id='btnApprove' class='btnAction' ref='A'>อนุมัติ</span>";	
-		}else  if($isChief && ($check_status == "A" || $check_status == "S" )){
+			 echo "<span name='btnApprove' id='btnApprove' class='btnAction' ref='A'> อนุมัติ </span> ";	
+		}
+		  if($isChief && ($check_status == "A" || $check_status == "S" )){
 			 echo "<span name='btnUnlock' id='btnUnlock' class='btnUnlock' ref='U'>ส่งกลับแก้ไข</span>";	
 		}
 		?>
@@ -220,7 +222,7 @@ $unlock_desc = $rs_list['unlock_desc'];
     </table></th>
   </tr>
   <tr class="div_keyin">
-    <td width="14%" align="center" valign="top" id="td_calendar"><input type="text" name="show_calendar" id="show_calendar" /></td>
+    <td width="14%" align="center" valign="top" id="td_calendar"><input type="hidden" name="show_calendar" id="show_calendar" /></td>
     <td width="86%" align="center" valign="top" id="td_form" ><div id="div_form_content"></div></td>
   </tr>
   <tr>
@@ -244,4 +246,5 @@ $unlock_desc = $rs_list['unlock_desc'];
 
 <script type="text/javascript" src="./modules/<?=$_GET['setModule']?>/<?=$_GET['setPage']?>.js"></script>
 <script src="./js/highcharts/highcharts.js"></script>
+<!--<script src="./js/highcharts/highcharts-3d.js"></script>-->
 <script src="./js/highcharts/exporting.js"></script>

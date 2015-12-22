@@ -4,8 +4,12 @@ require_once("../../includes/config.inc.php");
 require_once("../../includes/Class/ReadDir.Class.php");
 $db->debug=0;
 // List Menu Group
+
 $check_id = $_GET['check_id'];
 $check_date = $_GET['date'];
+
+
+$date_file = date2db($check_date);
 
 $setModule = $_GET['modules'];
 $setPage = $_GET['pages'];
@@ -116,6 +120,7 @@ $rs_edit = $db->GetRow($sql_edit);
 $readUsage = new ReadDir();
 $UsageData  = $readUsage->readUsage($check_date);
 
+
 	
 	if ($UsageData != false){
 		$DI_ftproot = $UsageData['DI']['ftproot'];
@@ -193,8 +198,8 @@ $key_status = $id <> "" ? "<img src='./images/on.gif' style='cursor:help' class=
       <td colspan="3" align="left"  class="ui-state-default" > <strong>Hardware</strong>  <span class="font-small">(% Disk Usage ต้องไม่เกิน 90%) </span> <span class="tooltips" style="cursor:help;font-size:14px" title="ระบบจะดึงข้อมูลอัตโนมัติจาก Server CATEDI & CATEBI) ช่วงเวลา 8.00 น.">?</span></td>
       </tr>
     <tr  class="ui-state-default">
-      <td colspan="2" ><strong>&nbsp;CATEDI1</strong></td>
-      <td  class="ui-state-default"><strong>CATEBI1</strong></td>
+      <td colspan="2" ><strong>&nbsp;CATEDI1 <img src="./images/icon-view.png" id="DIFiles" class="tooltips" title="View DI Usage -> <?=$date_file?>"></strong></td>
+      <td  class="ui-state-default"><strong>CATEBI1 <img src="./images/icon-view.png" id="BIFiles" class="tooltips" title="View BI Usage -> <?=$date_file?>"></strong></td>
       <td align="left"  class="ui-state-default"><strong> แก้ไข :</strong></td>
       </tr>
     <tr>
@@ -275,6 +280,7 @@ $key_status = $id <> "" ? "<img src='./images/on.gif' style='cursor:help' class=
 <input name="check_date" id="check_date" type="hidden" value="<?=$check_date?>"/>
 <input name="check_time" id="check_time" type="hidden" value="<?=$check_time?>" />
 </form>
+<div id="dialog-form-viewfile" title="รายระเอียดไฟล์" style="display:none"></div>
 <script type="text/javascript">
 <?php
 	for($i=1;$i<=12;$i++){
@@ -291,6 +297,7 @@ $key_status = $id <> "" ? "<img src='./images/on.gif' style='cursor:help' class=
 	
 	//$("input:checkbox").prop("checked", true);				
 	
+	$("#DIFiles, #BIFiles").css("cursor", "pointer");
 	
 	$("#holiday").click(function(){
  		 if($(this).is(':checked')){
@@ -405,6 +412,33 @@ $key_status = $id <> "" ? "<img src='./images/on.gif' style='cursor:help' class=
 						$(this).ajaxSubmit(options); 
 						return false; 
 					}); 
+					
+					
+			$("#DIFiles,#BIFiles").click(function(){
+				 $.loading("load");										
+				 $.setDialog("viewfile",680,540);
+				 
+				 var fileAct;
+				 var thisAtc = $(this).attr("id");
+				 if (thisAtc == "DIFiles"){
+					 fileAct = "DI";
+				 }else{
+					 fileAct = "BI";	 
+				 }
+					
+					$('#dialog-form-viewfile').dialog('open');	
+					//$.get('uploads_dir/bdf_logs/'+fileAct+'/<?=$date_file;?>',					
+					$.get('./modules/<?=$setModule?>/dwdm_viewfile.php', { date_file :'<?=$date_file;?>' ,file : fileAct},
+									function(data) {																						
+										$("#dialog-form-viewfile").html(data);												
+									}
+							).always(function(data) {			
+							 $.loading("unload");
+						  });					
+						return false;
+			});		
+			
+					
 					
 	});
 </script>

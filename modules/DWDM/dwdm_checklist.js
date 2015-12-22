@@ -33,7 +33,7 @@ $(function(){
 			  todayButton : true,
 			  minDate: minDateVal,	
 			  maxDate: maxDateVal,
-			  startDate:$('#date_start').val(),formatDate:'d-m-Y',
+			  startDate:$('#current_date').val(),formatDate:'d-m-Y',
 			//  weeks : true,			 	
 			  onSelectDate:function(dp,$input){
 										//console.log($input.val());
@@ -138,7 +138,7 @@ $(function(){
 						
 				 $.setDialog("graph",980,740);
 					$('#dialog-form-graph').dialog('open');	
-					$.get('./modules/'+setModule+'/'+setPage+'_graph_by_months.php',		
+					$.get('./modules/'+setModule+'/'+setPage+'_graph_by_daily.php',		
 							{  setModule : setModule , setPage : setPage , years : y , months :   m },						
 									function(data) {																						
 										$("#dialog-form-graph").html(data);												
@@ -166,7 +166,7 @@ $(function(){
 						
 				 $.setDialog("graph",980,740);
 					$('#dialog-form-graph').dialog('open');	
-					$.get('./modules/'+setModule+'/'+setPage+'_graph_by_years.php',		
+					$.get('./modules/'+setModule+'/'+setPage+'_graph_by_monthly.php',		
 							{  setModule : setModule , setPage : setPage , years : y , months :   m },						
 									function(data) {																						
 										$("#dialog-form-graph").html(data);												

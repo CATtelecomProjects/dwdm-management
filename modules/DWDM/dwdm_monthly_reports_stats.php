@@ -167,9 +167,9 @@ $tbl->openTable();
 		 ?></td>
         <td align="left" bgcolor=<?=$bgcolor;?>><?=str_repeat("&nbsp;&nbsp;&nbsp;",$rs_list[$i]['LEVELS']).$rs_list[$i]['NAME'];?></td>
         <td align="center" bgcolor=<?=$bgcolor;?>><?=$rs_list[$i]['POSITION_NAME'];?></td>
-        <td align="center" bgcolor=<?=$bgcolor;?>><?=$rs_list[$i]['WEB_STATS'];?></td>
-        <td align="center" bgcolor=<?=$bgcolor;?>><?=$rs_list[$i]['TOOL_STATS'];?></td>
-        <td align="center" bgcolor=<?=$bgcolor;?>><?=$rs_list[$i]['TOTALS'];?></td>
+        <td align="center" bgcolor=<?=$bgcolor;?>><?=number_format($rs_list[$i]['WEB_STATS']);?></td>
+        <td align="center" bgcolor=<?=$bgcolor;?>><?=number_format($rs_list[$i]['TOOL_STATS']);?></td>
+        <td align="center" bgcolor=<?=$bgcolor;?>><?=number_format($rs_list[$i]['TOTALS']);?></td>
       </tr>
       <?php 
 	  $maxRecord--;
@@ -183,9 +183,9 @@ $tbl->openTable();
         <th align="center"  bgcolor="#FFCC33" ></th>        
         <th align="center"  bgcolor="#FFCC33" ></th>
         <th align="right"  bgcolor="#FFCC33" >รวมทั้งหมด :</th>
-        <th align="center"  bgcolor="#FFCC33" ><?=$sumWeb;?></th>
-        <th align="center"  bgcolor="#FFCC33" ><?=$sumTool;?></th>
-        <th align="center"  bgcolor="#FFCC33" ><?=($sumWeb+$sumTool);?></th>
+        <th align="center"  bgcolor="#FFCC33" ><?=number_format($sumWeb);?></th>
+        <th align="center"  bgcolor="#FFCC33" ><?=number_format($sumTool);?></th>
+        <th align="center"  bgcolor="#FFCC33" ><?=number_format(($sumWeb+$sumTool));?></th>
       </tr>
   </table>
 </form>

@@ -8,6 +8,7 @@ require_once("./includes/Class/DataTable.Class.php");
 require_once("./includes/Class/Main.Class.php");
 require_once("./includes/Class/Auth.Class.php");
 require_once("page_auth.php");
+
 include("./session_timeout.php");
 ############################
 

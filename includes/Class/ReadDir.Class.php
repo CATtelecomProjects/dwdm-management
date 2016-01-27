@@ -104,7 +104,7 @@ $arrData['DI']['ftproot'] = trim(str_replace('%','',$data_DI[15][9]));
 $arrData['DI']['data'] 	  = trim(str_replace('%','',$data_DI[18][9]));
 $arrData['DI']['data1']   = trim(str_replace('%','',$data_DI[17][9]));
 
-$tmpDIData2    = trim(str_replace('%','',$data_DI[16][9]));
+$tmpDIData2    = trim(str_replace('%','',$data_DI[16][10]));
 $arrData['DI']['data2']   =  $tmpDIData2 == "" ?  trim(str_replace('%','',$data_DI[16][11])) : $tmpDIData2;
 
 

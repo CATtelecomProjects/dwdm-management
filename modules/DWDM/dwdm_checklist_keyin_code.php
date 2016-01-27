@@ -25,7 +25,7 @@ if($holiday == "Y"){
 //show_post();
 
 
-$db->debug = 0;
+$db->debug = 1;
 //exit;
 
 // check data exists

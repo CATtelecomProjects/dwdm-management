@@ -33,7 +33,7 @@ $(function(){
   <table width="100%" border="0" cellspacing="1" cellpadding="1">
     <tr>
       <td width="5%">&nbsp;</td>
-      <td width="95%" colspan="2">*ชื่อโมดูล :<br>
+      <td width="95%" colspan="2"><strong>*ชื่อโมดูล :</strong><br>
         <label for="name"></label>
         <span id="sprytextfield2">
         <input name="module_name" type="text" id="module_name" size="20"  value="<?=$rs_edit['module_name']?>" >
@@ -41,7 +41,7 @@ $(function(){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td colspan="2">รายละเอียด :<br>
+      <td colspan="2"><strong>รายละเอียด :</strong><br>
         <span id="sprytextfield1">
         <label for="description"></label>
         <textarea name="module_desc" cols="80" id="module_desc"><?=$rs_edit['module_desc']?></textarea>

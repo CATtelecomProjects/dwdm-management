@@ -44,7 +44,7 @@ $rs_list = $db->GetAll($sql_list);
 
 $tbl->openTemplate();
   ?>
-   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id?>">
+   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id?>">
       <thead>
         <tr>
           <th width="14%">Event Date</th>
@@ -57,7 +57,7 @@ $tbl->openTemplate();
       <tbody>
         <?php for($i=0;$i<count($rs_list);$i++){ ?>
         <tr>
-          <td align="center"><?=showdateTimeThai($rs_list[$i]['event_date'])?></td>
+          <td align="center"><?=$rs_list[$i]['event_date']?></td>
           <td><?=$rs_list[$i]['users']?></td>
           <td><?=$rs_list[$i]['event_page']?></td>
           <td><?=$rs_list[$i]['ip_address']?></td>

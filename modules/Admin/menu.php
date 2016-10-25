@@ -23,6 +23,7 @@ $sql_list = "SELECT
 					 a.menu_id,
 					 a.menu_name_th,
 					 a.menu_name_en,
+					 a.menu_desc,
 					 a.menu_file,
 					  a.menu_param,
 					 a.mgroup_id,
@@ -53,28 +54,30 @@ $rs_list = $db->GetAll($sql_list);
     <td align="right" valign="top"><?=MENU_ACTION?></td>
   </tr>
 </table>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id;?>">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id;?>">
   <thead>
     <tr>
-      <th width="6%"  class="header_height">จัดการ</th>
-      <th width="9%">ลำดับ</th>
-      <th width="22%">ชื่อเมนู (ไทย)</th>
-      <th width="18%">ชื่อเมนู (อังกฤษ)</th>
-      <th width="21%">ชื่อไฟล์เมนู</th>
-      <th width="15%">พารามิเตอร์</th>
-      <th width="9%">ไอคอน</th>
+      <th width="5%"  class="header_height">จัดการ</th>
+      <th width="5%">ลำดับ</th>
+      <th width="19%">ชื่อเมนู (ไทย)</th>
+      <th width="17%">ชื่อเมนู (อังกฤษ)</th>
+       <th width="17%">รายละเอียดเมนู</th>
+      <th width="17%">ชื่อไฟล์เมนู</th>
+      <th width="13%">พารามิเตอร์</th>
+      <th width="7%">ไอคอน</th>
     </tr>
   </thead>
   <tbody>
     <?php for($i=0;$i<count($rs_list);$i++){ ?>
     <tr>
-      <td align="center"><input type="radio" name="selID" id="selID_<?=$rs_list[$i]['menu_id']?>" value="<?=$rs_list[$i]['menu_id']?>" <?=$i==0?'checked':''?>/></td>
-      <td align="center"><?=$rs_list[$i]['menu_order']?></td>
-      <td><?=$rs_list[$i]['menu_name_th']?></td>
-      <td><?=$rs_list[$i]['menu_name_en']?></td>
-      <td><?=$rs_list[$i]['menu_file']?></td>
-      <td><?=$rs_list[$i]['menu_param']?></td>
-      <td align="center"><img src='./images/menu_actions/<?=$rs_list[$i]['icon_name']?>'/></td>
+      <td align="center" valign="top"><input type="radio" name="selID" id="selID_<?=$rs_list[$i]['menu_id']?>" value="<?=$rs_list[$i]['menu_id']?>" <?=$i==0?'checked':''?>/></td>
+      <td align="center" valign="top"><?=$rs_list[$i]['menu_order']?></td>
+      <td valign="top"><?=$rs_list[$i]['menu_name_th']?></td>
+     <td valign="top"><?=$rs_list[$i]['menu_name_en']?></td>
+       <td valign="top"><?=$rs_list[$i]['menu_desc']?></td>
+      <td valign="top"><?=$rs_list[$i]['menu_file']?></td>
+      <td valign="top"><?=$rs_list[$i]['menu_param']?></td>
+      <td align="center" valign="top"><img src='./images/menu_actions/<?=$rs_list[$i]['icon_name']?>'/></td>
     </tr>
     <?php } // End For ?>
   </tbody>
@@ -82,9 +85,10 @@ $rs_list = $db->GetAll($sql_list);
 <?php 
 	$tbl->closeTable(); 
 ?>
-<div id="dialog-form-<?=$tbl->page;?>" title="<?=$tbl->title?>" style="display:none"></div>
+<div id="dialog-form-<?=$tbl->page;?>" style="display:none"></div>
 <div id="dialog-confirm" title="Comfirm!!">ยืนยันการลบข้อมูล ?</div>
 <input type="hidden" name="hidRadio" id="hidRadio" value="<?=$rs_list[0]['menu_id']?>" />
 <input type="hidden" name="setModule" id="setModule" value="<?=$_GET['setModule']?>" />
 <input type="hidden" name="setPage" id="setPage" value="<?=$_GET['setPage']?>" />
+<input type="hidden" name="setTitle" id="setTitle" value="<?=$tbl->title?>" />
 <div id="test"></div>

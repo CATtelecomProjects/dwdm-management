@@ -30,7 +30,7 @@ $tbl->title = title_menu($_GET['setPage']) . $str_years;
 $tbl->module = $_GET['setModule'];
 $tbl->page = $_GET['setPage'];
 $tbl->order = 0;
-$tbl->pagingLength = 20;
+$tbl->pagingLength = 100;
 $tbl->orderType = "desc";
 
 $db->debug=0;
@@ -113,7 +113,7 @@ $tbl->openTable();
   ?>
 
 <form method="post" action="" name="form_add" id="form_add">
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id;?>">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id;?>">
     <thead>
       <tr>
         <th width="4%"  class="header_height"><?=$isChief?"จัดการ":"ลำดับ"?></th>
@@ -216,6 +216,7 @@ $unlock_desc = $rs_list['unlock_desc'];
 			 echo "<span name='btnUnlock' id='btnUnlock' class='btnUnlock' ref='U'>ส่งกลับแก้ไข</span>";	
 		}
 		?>
+        <span name='btnExport' id='btnExport' class='btnUnlock' ref='E'>Export PDF</span>
         </div>
         </td>
       </tr>
@@ -234,7 +235,7 @@ $unlock_desc = $rs_list['unlock_desc'];
 	}
 
 ?>
-<div id="dialog-form-<?=$tbl->page;?>" title="<?=title_menu($_GET['setPage'])?>" style="display:none"></div>
+<div id="dialog-form-<?=$tbl->page;?>"  style="display:none"></div>
 <div id="dialog-form-graph" title="DW/DM Disk Usage " style="display:none"></div>
 <div id="dialog-form-report" title="รายงานการตรวจสอบระบบ DW/DM " style="display:none"></div>
 <div id="dialog-confirm" title="Comfirm!!" style="display:none">ยืนยันการลบข้อมูล ?</div>
@@ -243,6 +244,7 @@ $unlock_desc = $rs_list['unlock_desc'];
 <input type="hidden" name="setPage" id="setPage" value="<?=$_GET['setPage']?>" />
 <input name="maxMonth" id="maxMonth" type="hidden" value="<?=$maxMonth?>" />
 <input name="hidYears" id="hidYears" type="hidden" value="<?=$years?>" />
+<input type="hidden" name="setTitle" id="setTitle" value="<?=title_menu($_GET['setPage'])?>" />
 
 <script type="text/javascript" src="./modules/<?=$_GET['setModule']?>/<?=$_GET['setPage']?>.js"></script>
 <script src="./js/highcharts/highcharts.js"></script>

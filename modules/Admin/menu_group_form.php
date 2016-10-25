@@ -78,7 +78,7 @@ $(function(){
   <table width="100%" border="0" cellspacing="1" cellpadding="1">
     <tr>
       <td width="5%">&nbsp;</td>
-      <td>*ชื่อกลุ่มเมนู (ไทย) : <br />
+      <td><strong>*ชื่อกลุ่มเมนู (ไทย) : </strong><br />
         <span id="sprytextfield2">
         <label>
           <input name="menu_group_th" type="text" id="menu_group_th" size="30" value="<?=$rs_edit['menu_group_th']?>" />
@@ -112,7 +112,7 @@ $(function(){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td>*ชื่อกลุ่มเมนู (อังกฤษ) : <br />
+      <td><strong>*ชื่อกลุ่มเมนู (อังกฤษ) : </strong><br />
         <span id="sprytextfield3">
         <label>
           <input name="menu_group_en" type="text" id="menu_group_en" size="30" value="<?=$rs_edit['menu_group_en']?>"  />
@@ -121,7 +121,7 @@ $(function(){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td>โมดูล : <br />
+      <td><strong>โมดูล : </strong><br />
         <label for="modules_id"></label>
         <select name="modules_id" id="modules_id">
           <?php		
@@ -133,12 +133,12 @@ $(function(){
     </tr>
     <tr>
       <td height="43">&nbsp;</td>
-      <td>ไอคอน : <img src="./images/menu_actions/<?=$rs_edit['icon_name']==""?"icon-keyin.gif":$rs_edit['icon_name']?>" align="absmiddle" id="icons" /> &nbsp;&nbsp;<a href="#" id="dialog_link" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-newwin"></span>เลือก</a>
+      <td><strong>ไอคอน :</strong> <img src="./images/menu_actions/<?=$rs_edit['icon_name']==""?"icon-keyin.gif":$rs_edit['icon_name']?>" align="absmiddle" id="icons" /> &nbsp;&nbsp;<a href="#" id="dialog_link" class="ui-state-default ui-corner-all"><span class="ui-icon ui-icon-newwin"></span>เลือก</a>
       <input type="hidden" name="icon_id" id="icon_id" value="<?=$rs_edit['icon_id']?>" /></td>
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td>ลำดับเมนู :<br />
+      <td><strong>ลำดับเมนู :</strong><br />
         <label for="menu_order"></label>
         <span id="sprytextfield1">
         <input name="menu_order" type="text" id="menu_order" size="5" value="<?=$rs_edit['menu_order']?>" />

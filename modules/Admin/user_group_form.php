@@ -30,10 +30,10 @@ $(function(){
 
 
   <form id="form_<?=$_GET['pages']?>" name="form_<?=$_GET['pages']?>" method="post" action="">
-    <table width="100%" border="0" cellspacing="1" cellpadding="1">
+    <table width="100%" border="0" cellspacing="1" cellpadding="2">
       <tr>
         <td width="5%">&nbsp;</td>
-        <td width="95%" valign="top">*ชื่อกลุ่มผู้ใช้งาน :<br />
+        <td width="95%" valign="top"><strong>*ชื่อกลุ่มผู้ใช้งาน :</strong><br />
           <span id="sprytextfield1">
           <label>
             <input name="group_name" type="text" id="group_name" size="40" value="<?=$rs_edit['group_name']?>" />
@@ -42,7 +42,9 @@ $(function(){
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td><label for="group_desc"></label>
+          <strong>รายละเอียดกลุ่มผู้ใช้งาน :</strong><br>
+        <textarea name="group_desc" id="group_desc" cols="60" rows="4"><?=$rs_edit['group_desc']?></textarea></td>
       </tr>
       <tr>
         <td>&nbsp;</td>

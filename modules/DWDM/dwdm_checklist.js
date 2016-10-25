@@ -9,7 +9,9 @@ $(function(){
 		
 		var setPage =  $("#setPage").val();
 		
+		var setTitle =  $("#setTitle").val();
 		
+		$.setDialog(setPage,700,590,setTitle);
 		
 		$('.button').button();
 		
@@ -227,6 +229,16 @@ $(function(){
 							}  // End function : success
 						});	
 					}
+			});
+			
+			
+			// Export Button
+		$("#btnExport").button({
+				icons: {
+					primary: 'ui-icon-extlink'
+				}			
+				}).click(function(){		
+					window.open("modules/DWDM/dwdm_checklist_export.php?check_id="+check_id);
 			});
 			
 		

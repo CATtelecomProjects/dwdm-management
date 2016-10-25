@@ -9,6 +9,8 @@ $(function(){
 		
 		var setPage =  $("#setPage").val();
 		
+		var setTitle =  $("#setTitle").val();
+		
 			
 				$(".preview").button({
 				icons: {
@@ -31,7 +33,7 @@ $(function(){
 				
 		
 			// Setting Dialog
-		$.setDialog(setPage,860,550);
+		$.setDialog(setPage,860,550,setTitle );
 		
 		
 		$.MainAction(setModule,setPage);

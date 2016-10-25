@@ -34,7 +34,7 @@ $(function(){
   <table width="100%" border="0" cellspacing="2" cellpadding="1">
     <tr>
       <td width="5%">&nbsp;</td>
-      <td colspan="2">*ชื่อหมวดหมู่ :<br>
+      <td colspan="2"><strong>*ชื่อหมวดหมู่ :</strong><br>
         <label for="cate_name"></label>
         <span id="sprytextfield2">
         <input name="cate_name" type="text" id="cate_name" size="35"  value="<?=$rs_edit['cate_name']?>" >
@@ -42,17 +42,13 @@ $(function(){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td width="34%">เผยแพร่ :<br>
+      <td width="34%"><strong>เผยแพร่ :</strong><br>
         <label for="active"></label>
         <select name="active" id="active">
           <option value="Y" <?=$rs_edit['active'] == "Y" ? "selected" : "";?> >Yes</option>
           <option value="N"  <?=$rs_edit['active'] == "N" ? "selected" : "";?>>No</option>
         </select></td>
-      <td width="61%" valign="top">&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td colspan="2">ลำดับเมนู<br>
+      <td width="61%" valign="top"><strong>ลำดับเมนู :</strong><br>
         <span id="sprytextfield3">
         <label for="menu_order"></label>
         <input name="menu_order" type="text" id="menu_order" size="5" value="<?=$rs_edit['menu_order']?>">

@@ -12,8 +12,13 @@ if($_SESSION['sess_user_id']) pageback('index.php','');
 <title>
 <?=SITE_NAME;?>
 </title>
-<script type="text/javascript" src="js/jquery.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
+  <script src="vendor/components/jquery/jquery.min.js"></script>
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>-->
+<!-- <script src="vendor/components/jqueryui/jquery-ui.min.js"></script> -->
 <script type="text/javascript" src="css/<?=THEMES?>/jquery-ui.min.js"></script>
+
 <script type="text/javascript" src="js/jquery.form.js"></script>
 <link type="text/css" href="css/main.css" rel="stylesheet" />
 <link type="text/css" href="css/<?=THEMES?>/jquery-ui.css" rel="stylesheet" />
@@ -47,7 +52,7 @@ $(function(){
 	
 	ajaxLoading();
 	
-	$("#username,#password").tipsy({trigger: "hover",gravity: "w"});	
+	$("#username,#password,#txt_captcha").tipsy({trigger: "hover",gravity: "w"});	
 
 /*	$("#btn_recode").tipsy({trigger: "hover",gravity: "w"});
 	$("#txt_captcha").tipsy({trigger: "hover",gravity: "s"});		
@@ -74,7 +79,7 @@ $(function(){
 			closeOnEscape: false,
 			disabled:true,
 			height: 280,
-			width: 420,
+			width: 440,
 			modal: true,
 			show: 'highlight',
 			hide: 'fade',
@@ -99,7 +104,7 @@ $(function(){
 		
 // From Submit Login
 		 var options = { 
-						url : 'checkuser.php',
+						url : 'checkuser.php?'+$.now(),
 						type : 'post',
 						data : {doAction : 'Access' },
 						beforeSubmit: function(formData, jqForm, options){
@@ -126,9 +131,10 @@ $(function(){
 							}			
 						}
 					},*/
-						success: function(data){
-							
-							if(data == "1"){
+						success: function(data){							
+						//$('#footer').html(data);
+
+							if($.trim(data) == '1'){
 								setTimeout("window.location='index.php';",0);	
 							}else{
 								//$('#divMsgDiag').html(data).fadeIn();
@@ -147,12 +153,13 @@ $(function(){
 					}); 
 	
 	
-	//	getCodeImage();
+		/*
+		getCodeImage();
 	
-	//	$("#btn_recode").click(function(){
-	//	getCodeImage();
-	//});
-
+		$("#btn_recode").click(function(){
+				getCodeImage();
+		});
+*/
 
 });
 
@@ -203,15 +210,15 @@ function getCodeImage(){
       <tr>
         <td><table width="100%" border="0" align="center" cellpadding="4" cellspacing="0">
             <tr>
-              <td width="14%" rowspan="4" align="right" valign="top"><img src="images/login_new.png"></td>
-              <td width="86%"  valign="top"><div class="ui-widget" style="display:none" id="ErrorMsg">
+              <td width="16%" rowspan="4" align="right" valign="top"><img src="images/login_new.png"></td>
+              <td width="84%"  valign="top"><div class="ui-widget" style="display:none" id="ErrorMsg">
                   <div class="ui-state-highlight ui-corner-all" style="padding: .01em;">
                     <p> &nbsp;<span class="ui-icon ui-icon-alert" style="float: left"></span> <strong>  ชื่อ/รหัสผ่าน ไม่ถูกต้อง !!</strong></p>
                   </div>
                 </div></td>
             </tr>
             <tr>
-              <td width="86%">Username&nbsp;:<br />
+              <td width="84%">Username&nbsp;:<br />
                 <span id="sprytextfield1">
                 <input name="username" type="text" id="username" title="กรอกชื่อผู้ใช้งาน" value="" size="20"/>
                 <span class="textfieldRequiredMsg">A value is required.</span></span></td>
@@ -221,24 +228,27 @@ function getCodeImage(){
                 <span id="sprytextfield2">
                 <input name="password" type="password" id="password"  title="กรอกรหัสผ่าน" value="" size="20"/>
                 <span class="textfieldRequiredMsg">A value is required.</span></span></td>
-            </tr>
-            <!--<tr>
+            </tr>  
+            <!--
+            <tr>
               <td><label id="box_secuecode"><span id="secuecode"></span></label>&nbsp;<img src="images/recaptcha-sprite.png" width="20" height="18" align="absmiddle" class="tooltips"  id="btn_recode" title="Re-Capcha"><div class="ui-widget" style="display:none" id="ErrorMsg2">
                   <div class="ui-state-highlight ui-corner-all" style="padding: .01em;">
                     <p> &nbsp;<span class="ui-icon ui-icon-alert" style="float: left"></span> <strong>  รหัสความปลอดภัยไม่ถูกต้อง !!</strong></p>
                   </div>
               </div></td>
             </tr>
-            <tr>
+          <tr>
+            <td></td>
               <td height="31">รหัสความปลอดภัย :<br><span id="sprytextfield3">
               <label for="captcha"></label>
               <input name="captcha" type="text" id="captcha" size="10" maxlength="4" class="tooltips" title="กรอก Re-Captcha" >
               <span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded maximum number of characters.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span></span></td>
-            </tr>-->
-            <tr>
-              <td height="31">  <br><button type="submit" name="Submit" id="btn_login" value="" /> Sign In &raquo;</button>
-              
-                <span id='ajaxloading'>Loading..</span> <br/>&nbsp;
+            </tr>
+            -->
+            <tr>         
+              <td height="31">  <br><button type="submit" name="Submit" id="btn_login" value="" /> Sign In &raquo;</button>    
+              <input name="redirect" id="redirect" type="hidden" value="<?=$_GET['redirect']?>">          
+                <span id='ajaxloading'>Loading..</span>&nbsp;
               </td>
             </tr>
                  <tr>
@@ -253,6 +263,7 @@ function getCodeImage(){
 <script type="text/javascript">
 var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "none", {validateOn:["blur"]});
 var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "none", {validateOn:["blur"]});
+<!--var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3", "none", {validateOn:["blur"]});-->
 </script>
 </body>
 </html>

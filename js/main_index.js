@@ -5,11 +5,35 @@ $(function(){
 			 ajaxStop: function() { $("body").removeClass("loading"); }    
 		});		
 			*/
+		// autocomplete 	highlight manual
+		$.extend($.ui.autocomplete.prototype, {
+    _renderItem: function (ul, item) {
+        var searchMask = this.element.val();
+        var regEx = new RegExp(searchMask, "ig");
+        var replaceMask = "<b class=\"ui-state-highlight\">$&</b>";
+        var html = item.label.replace(regEx, replaceMask);
+
+        return $("<li></li>")
+            .data("item.autocomplete", item)
+            .append($("<a></a>").html(html))
+            .appendTo(ul);
+    		}
+		});	
+		
+		// $.fn.bootstrapBtn = $.fn.button.noConflict();
 		
 		// Tooltips tipsy({gravity: 'n'}); // nw | n | ne | w | e | sw | s | se |  $.fn.tipsy.autoNS 
 		$('#txt_search').tipsy({gravity: 'e'});
 		
 		$(".tooltips").tipsy({html: true ,gravity: 's' });
+		
+		$(".tooltips2").tipsy({html: true ,gravity: 'w' });
+		
+		$('.tooltips').css("cursor","pointer");
+		
+		$('.showMenuDesc').css("cursor","help");
+		
+	
 		
 /******************************************/		
 		// Accordio
@@ -54,7 +78,7 @@ $(function(){
 			
 			$('.downloads').click(function(){
 					var docs_id = $(this).attr('id');
-					$.get('downloads.php?docs_id='+docs_id , function(data){
+					$.get('downloads.php?'+$.now()+'&docs_id='+docs_id , function(data){
 						//$('#aaa').html(data);
 					});
 			});

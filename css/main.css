@@ -202,3 +202,27 @@ input, select, textarea {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
+
+/*  Set Scroll for autocomplete */
+.ui-autocomplete {
+		max-height: 400px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+	}
+	/* IE 6 doesn't support max-height
+	 * we use height instead, but this forces the menu to always be this tall
+	 */
+	* html .ui-autocomplete {
+		height: 400px;
+	}
+	
+/* highlight for search result  */
+.highlight {
+	background: #FFC;
+	color:red;
+}
+.highlight_important {
+	background: #FFC;
+	color:red;
+}

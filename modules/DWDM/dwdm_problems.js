@@ -9,13 +9,15 @@ $(function(){
 		
 		var setPage =  $("#setPage").val();
 		
+		var setTitle =  $("#setTitle").val();
+		
 			// Setting Dialog
-		$.setDialog(setPage,700,590);
+		$.setDialog(setPage,700,590,setTitle);
 		
 		
 		$.MainAction(setModule,setPage);
 		
-		// เลือกเมนู
+		// ร ร…ร—รยกร รยนร
 				$('#problem_status , #sel_cate_id').change(function(){
 					window.location = '?setModule='+setModule+'&setPage='+setPage+'&problem_status='+$("#problem_status").val()+'&cate_id='+$("#sel_cate_id").val();
 				});

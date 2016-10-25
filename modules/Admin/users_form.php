@@ -1,11 +1,13 @@
 ﻿<?php 
+
 require_once("../../includes/config.inc.php");
 // Show Edit Value
 
 if($_GET['doAction'] == "edit"){ 
 	$id = $_GET['id'];
-	$sql_edit = "SELECT  user_id ,username, password, user_desc FROM tbl_users WHERE user_id = '$id';";
+	$sql_edit = "SELECT  user_id ,username, password, user_desc  FROM tbl_users WHERE user_id = '$id';";
 	$rs_edit = $db->GetRow($sql_edit);
+
 }
 
 ?>
@@ -35,14 +37,14 @@ $(function(){
   <table width="100%" border="0" cellspacing="1" cellpadding="1">
     <tr>
       <td width="4%">&nbsp;</td>
-      <td width="54%" valign="top">*Username :<br />
+      <td width="54%" valign="top"><strong>*Username :</strong><br />
         <span id="sprytextfield1">
         <label>
           <input name="username" type="text" id="username" size="20" value="<?=$rs_edit['username']?>" />
         </label>
         <span class="textfieldRequiredMsg">A value is required.</span></span></td>
-      <td width="42%" rowspan="4" valign="top">กลุ่มผู้ใช้งาน :<br />
-        <select name="user_group[]" size="4" multiple="multiple" id="user_group">
+      <td width="42%" rowspan="3" valign="top"><strong>User Group :</strong><br />
+        <select name="user_group[]" size="5" multiple="multiple" id="user_group">
           <?php
 			// ถ้าเลือกแก้ไขให้ slect group_id ใน tbl_user_auth
 			  if($_GET['doAction']=='edit'){
@@ -68,11 +70,11 @@ $(function(){
 			  ?>
         </select>
         <br />
-      <span class="font-small">*กด Ctrl เพื่อเลือกค่าเป็นช่วงข้อมูล</span></td>
+      <span class="font-small">*Press Ctrl to select multiple</span></td>
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td>*Password :<br />
+      <td><strong>*Password :</strong><br />
         <span id="sprytextfield2">
         <label>
           <input name="password" type="password" id="password" size="20" value="<?=base64_decode($rs_edit['password'])?>"/>
@@ -81,7 +83,7 @@ $(function(){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td>*Confirm Password  :<br />
+      <td><strong>*Confirm Password  :</strong><br />
         <span id="spryconfirm1">
         <label for="repasswords"></label>
         <input name="repasswords" type="password" id="repasswords" size="20" value="<?=base64_decode($rs_edit['password'])?>"/>
@@ -89,16 +91,45 @@ $(function(){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td colspan="2">*ชื่อผู้ใช้งาน  :<br />
+      <td valign="top"><strong>*Name  :</strong><br />
         <span id="sprytextfield5">
         <label>
           <input name="user_desc" type="text" id="user_desc" size="40" value="<?=$rs_edit['user_desc']?>"/>
         </label>
         <span class="textfieldRequiredMsg">A value is required.</span></span></td>
+      <td valign="top"><strong>Module Owner :</strong><br />
+        <select name="module_name[]" size="4" multiple="multiple" id="module_name[]">
+          <?php
+			// ถ้าเลือกแก้ไขให้ slect group_id ใน tbl_user_auth
+			$sql_module = $_GET['doAction']=='edit' ? "  SELECT
+									  m.module_name,
+									  m.module_desc,
+									  a.module_name AS module_name_chk
+									FROM tbl_sm_module M
+									  LEFT JOIN tbl_module_auth A
+										ON m.module_name = A.module_name
+										 AND a.user_id = $id
+									ORDER BY m.module_name " : "  SELECT
+									  m.module_name,
+									  m.module_desc
+									FROM tbl_sm_module M									 
+									ORDER BY m.module_name";				 
+			
+				$rs_module = $db->GetAll($sql_module);
+				
+				
+				 for($i=0;$i<count($rs_module);$i++){
+					 $module_name = $rs_module[$i]['module_name'];
+					 	$sel = $module_name ==  $rs_module[$i]['module_name_chk'] ? 'selected' : '';
+					 
+						echo "<option value='$module_name' $sel>".$rs_module[$i]['module_name']." : ".$rs_module[$i]['module_desc']."</option>\n";
+				 }
+				
+			
+			  ?>
+        </select>
+        <br />
+      <span class="font-small">*Press Ctrl to select multiple</span></td>
     </tr>
     <tr>
       <td>&nbsp;</td>

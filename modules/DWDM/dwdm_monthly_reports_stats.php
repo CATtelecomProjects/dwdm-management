@@ -48,8 +48,6 @@ $currentMonth = !isset($_GET['month']) ?  $rs_months[0]['months'] : $_GET['month
 		  $str_month .=    "</select>";
 
 
-
-
 $tbl = new dataTable();
 $tbl->id = $_GET['setPage'];
 $tbl->title = title_menu($_GET['setPage']) . $str_years . $str_month;
@@ -67,6 +65,7 @@ $auth->db =$db;
 $auth->user_id = $_SESSION['sess_user_id'];
 
 $div_graph = "&nbsp;<span class='btnGraph'> <button>แสดงกราฟ</button></span>";
+//$div_graph .= "&nbsp;<span class='btnGraph2'> <button>แสดงกราฟ2</button></span>";
 //$div_graph .= "<span class='btnGraphYear'> <button>กราฟรายปี</button></span>";
 //$div_report = "<span class='btnReport'><button>รายงาน</button></span>";
 
@@ -75,7 +74,7 @@ $isOper = $auth->checkUserAuth(3);
 $isChief = $auth->checkUserAuth(4);
 
 if($isChief && !isset($_GET['page'])){
-	$tbl->menu = MENU_ACTION."  ".$div_graph." ".$div_report;	
+	//$tbl->menu = MENU_ACTION."  ".$div_graph." ".$div_report;	
 	$sql_option = "";
 }else{
 	$tbl->menu = $div_graph." ".$div_report;		
@@ -124,7 +123,7 @@ $tbl->openTable();
   ?>
 
 <form method="post" action="" name="form_add" id="form_add">
-  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id;?>">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id;?>">
     <thead>
       <tr>
         <th width="5%"  class="header_height"><?=$isChief?"จัดการ":"ลำดับ"?></th>

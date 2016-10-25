@@ -3,4 +3,10 @@
 <file name="exporting.js" server="10.32.13.45//dwdm-management/" local="130880196000000000" remote="130880196000000000" />
 <file name="highcharts.js" server="10.32.13.45//dwdm-management/" local="130880196000000000" remote="130880196000000000" />
 <file name="highcharts-3d.js" server="10.32.13.45//dwdm-management/" local="130880196000000000" remote="130880196000000000" />
+<file name="highcharts.js" server="catbsc1//dwdm-management/" local="130880196000000000" remote="130880196000000000" />
+<file name="highcharts-3d.js" server="catbsc1//dwdm-management/" local="130880196000000000" remote="130880196000000000" />
+<file name="exporting.js" server="catbsc1//dwdm-management/" local="130880196000000000" remote="130880196000000000" />
+<file name="highcharts.js" server="catbsc1/dwdm-management/" local="130880196000000000" remote="130880196000000000" />
+<file name="highcharts-3d.js" server="catbsc1/dwdm-management/" local="130880196000000000" remote="130880196000000000" />
+<file name="exporting.js" server="catbsc1/dwdm-management/" local="130880196000000000" remote="130880196000000000" />
 </dwsync>

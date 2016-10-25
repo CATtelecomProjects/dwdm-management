@@ -10,14 +10,12 @@ $password = base64_encode($_POST['password']);
 $emp_code = $_POST['emp_code'];
 $user_desc = $_POST['user_desc'];
 $user = $_SESSION['sess_name'];
-/*
-$email = $_POST['email'];
-$gender = $_POST['gender'];
-$telephone = $_POST['telephone'];
-$prefix_id = $_POST['prefix_id'];
-$position_id = $_POST['position_id'];
-$site_id = $_POST['site_id'];
-*/
+$module_owner = $_POST['module_name'];
+/*print "<pre>";
+print_r($_POST);
+print "</pre>";*/
+
+//exit;
 $db->debug = 0;
 /************************************************/
 
@@ -29,6 +27,10 @@ global $db ,$user_id,$action ,$user;
 		// ทำการเคลียร์ค่าใน table tbl_user_auth ตามรหัส user_id	 ทุกครั้ง
 	 	$sql_del_group = "DELETE FROM tbl_user_auth WHERE user_id = $user_id ";			
 		$db->Execute($sql_del_group);
+		
+		// ทำการเคลียร์ค่าใน table tbl_module_auth ตามรหัส user_id	 ทุกครั้ง
+	 	$sql_del_module = "DELETE FROM tbl_module_auth WHERE user_id = $user_id ";			
+		$db->Execute($sql_del_module);
 		
 		if($action == "new"){ 
 			// หาค่าล่าสุดจาก tbl_users จากค่า auto increatment
@@ -49,6 +51,18 @@ global $db ,$user_id,$action ,$user;
 						$db->Execute($sql_add_ugroup);
 				}
 		}
+		
+		
+		// วนเพิ่มข้อมูลใน Table tbl_module_auth
+		
+		if($_POST['module_name']){
+					
+				foreach($_POST['module_name'] as $v){
+					 	$sql_add_module = "INSERT INTO tbl_module_auth (user_id , module_name) VALUES ($set_user_id ,  '$v'); ";			
+						$db->Execute($sql_add_module);
+				}
+		}
+		
 		/************************************************/
 		# End เพิ่มค่าที่ tbl_user_auth
 		
@@ -78,8 +92,8 @@ global $db ,$user_id,$action ,$user;
 
 if($action == "new"){     
 	 	 $sql = "INSERT INTO tbl_users
-								( username, password,  user_desc , update_by  )
-					VALUES ( '".$username."','".$password."','".$user_desc."' , '$user')";
+								( username, password,  user_desc  , update_by  )
+					VALUES ( '".$username."','".$password."','".$user_desc."', '$user')";
 		$result = $db->Execute($sql);
 		
 			
@@ -90,7 +104,7 @@ if($action == "new"){
 	 $sql = "UPDATE tbl_users 
 								SET  username ='".$username."', 
 										password = '".$password."', 
-										user_desc='".$user_desc."',										
+										user_desc='".$user_desc."',															
 										update_by = '$user',
 										update_time = NOW()
 					WHERE user_id = $user_id ";

@@ -64,7 +64,7 @@ $rs_list = $db->GetAll($sql_list);
     <td align="right" valign="top">&nbsp;</td>
   </tr>
 </table>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id;?>">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id;?>">
   <thead>
     <tr>
       <th width="7%"  class="header_height">ลำดับ</th>
@@ -87,4 +87,7 @@ $rs_list = $db->GetAll($sql_list);
 <?php 
 	$tbl->closeTable(); 
 ?>
-<div id="dialog-knowledge_view" title="<?=$tbl->title?>" style="display:block"></div>
+<div id="dialog-form-<?=$tbl->page;?>"  style="display:none"></div>
+<input type="hidden" name="setTitle" id="setTitle" value="<?=$tbl->title?>" />
+<input type="hidden" name="setModule" id="setModule" value="<?=$_GET['setModule']?>" />
+<input type="hidden" name="setPage" id="setPage" value="<?=$_GET['setPage']?>" />

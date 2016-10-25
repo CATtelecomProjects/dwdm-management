@@ -97,7 +97,7 @@ $rs_list = $db->GetAll($sql_list);
     <td align="right" valign="top"><?=MENU_ACTION?></td>
   </tr>
 </table>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id;?>">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id;?>">
   <thead>
     <tr>
       <th width="4%"  class="header_height">จัดการ</th>
@@ -124,8 +124,8 @@ $rs_list = $db->GetAll($sql_list);
       <td align="left" valign="top"><a href="#" class="OpenView" rel="<?=$rs_list[$i]['id']?>"><?=$rs_list[$i]['problem_topic']?></a></td>
       <td valign="top"><?=$rs_list[$i]['problem_owner']?></td>
       <td align="center" valign="top"><?=$problem_status_str?></td>
-      <td align="center" valign="top"><?=showdateTimeThai($rs_list[$i]['problem_date_start']);?></td>
-      <td align="center" valign="top"><?=$rs_list[$i]['problem_status']  == "S" ? showdateTimeThai($rs_list[$i]['problem_date_finish']) : "N/A";?></td>
+      <td align="center" valign="top"><?=$rs_list[$i]['problem_date_start'];?></td>
+      <td align="center" valign="top"><?=$rs_list[$i]['problem_status']  == "S" ? $rs_list[$i]['problem_date_finish'] : "N/A";?></td>
     </tr>
     <?php } // End for ?>
   </tbody>
@@ -133,8 +133,9 @@ $rs_list = $db->GetAll($sql_list);
 <?php 
 	$tbl->closeTable(); 
 ?>
-<div id="dialog-form-<?=$_GET['setPage'];?>" title="<?=$tbl->title?>" style="display:block"></div>
+<div id="dialog-form-<?=$_GET['setPage'];?>" style="display:block"></div>
 <div id="dialog-confirm" title="Comfirm!!">ยืนยันการลบข้อมูล ?</div>
 <input type="hidden" name="hidRadio" id="hidRadio" value="<?=$rs_list[0]['id']?>" />
 <input type="hidden" name="setModule" id="setModule" value="<?=$_GET['setModule']?>" />
 <input type="hidden" name="setPage" id="setPage" value="<?=$_GET['setPage']?>" />
+<input type="hidden" name="setTitle" id="setTitle" value="<?=$tbl->title?>" />

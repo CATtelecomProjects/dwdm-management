@@ -10,4 +10,14 @@
 <file name="loading.gif" server="10.32.13.45//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
 <file name="loading_background.png" server="10.32.13.45//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
 <file name="overlay.png" server="10.32.13.45//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="overlay.png" server="catbsc1//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="controls.png" server="catbsc1//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="border.png" server="catbsc1//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="loading_background.png" server="catbsc1//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="loading.gif" server="catbsc1//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="overlay.png" server="catbsc1/dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="controls.png" server="catbsc1/dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="border.png" server="catbsc1/dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="loading_background.png" server="catbsc1/dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="loading.gif" server="catbsc1/dwdm-management/" local="130533732000000000" remote="130533732000000000" />
 </dwsync>

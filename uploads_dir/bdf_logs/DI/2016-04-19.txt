@@ -1,0 +1,26 @@
+Filesystem          kbytes    used   avail %used Mounted on
+/dev/vg00/lvol3     753664  492048  260264   65% /
+/dev/vg00/lvol1     576595  235225  283710   45% /stand
+/dev/vg01/lvol2    786432000 46698426 693562444    6% /work
+/dev/vg00/lvol7    5996544 4182616 1803456   70% /var
+/dev/vg01/lvol4    256049152  119056 239972143    0% /utilloc
+/dev/vg00/lvol6    6422528 3151000 3245976   49% /usr
+/dev/vg00/lvol5    1048576  298432  746232   29% /tmp
+/dev/vg01/lvol3    419430400 120836092 279948324   30% /temp
+/dev/vg00/lvol9    41943040 9260688 30639749   23% /sas
+/dev/vg00/lvol10   41943040  640339 38727259    2% /sas/install
+/dev/vg00/lvol4    7766016 6093848 1659112   79% /opt
+/dev/vg01/lvol7    41943040   96793 39289032    0% /logs
+/dev/vg00/lvol8     229376  138528   90176   61% /home
+/dev/vg01/lvol9    425984000 19248353 381541811    5% /ftproot2
+/dev/vg04/lvol1    2147450880 818872227 1245669903   40% /ftproot
+/dev/vg01/lvol5    1026031616 16851012 946189245    2% /data2
+/dev/vg03/lvol1    2147450880 985809502 1089038834   48% /data1
+/dev/vg01/lvol1    2097152000 1279833493 766261898   63% /data
+/dev/vg01/lvol8    41943040 17879906 22559251   44% /config
+/dev/vg05/lvol1    2147450880 865020935 1202382017   42% /archive
+/dev/vg02/lvol1    31457280 8101089 21896537   27% /app/sas/software
+/dev/vg02/lvol2    20971520 7808487 12347563   39% /app/sas/config
+/dev/vg02/lvol3    52412416  426398 48751268    1% /app/depot
+CATEBI1:/data/trigger_file
+                   1048576000 113454360 876684128   11% /data/trigger_file

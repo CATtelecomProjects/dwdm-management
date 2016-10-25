@@ -8,8 +8,10 @@ $(function(){
 		
 		var setPage =  $("#setPage").val();
 		
+		var setTitle =  $("#setTitle").val();
+		
 		// Setting Dialog
-		$.setDialog(setPage,520,420);
+		$.setDialog(setPage,520,500 , setTitle);
 		
 		$.MainAction(setModule,setPage,'mgroup_id');
 		

@@ -50,9 +50,9 @@ $(function(){
 <form action="" id="form_dwdm_portlet" name="form_dwdm_portlet">
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
-    <td width="21" align="left" valign="top">&nbsp;</td>
-    <td width="146" valign="top">*ชื่อ Portlet :</td>
-    <td width="792" align="left" valign="top"><span id="sprytextfield3">
+    <td width="10" align="left" valign="top">&nbsp;</td>
+    <td width="147" valign="top"><strong>*ชื่อ Portlet :</strong></td>
+    <td width="735" align="left" valign="top"><span id="sprytextfield3">
       <label for="portlet"></label>
       <input name="portlet" type="text" id="portlet" placeholder="ชื่อของ Portlet  (ภาษาอังกฤษ)" value="<?=$rs_edit['portlet']?>" size="40">
       <span class="textfieldRequiredMsg">A value is required.</span></span></td>
@@ -65,7 +65,7 @@ $(function(){
     </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>*ปรับปรุงล่าสุดโดย :</td>
+    <td><strong>*ปรับปรุงล่าสุดโดย :</strong></td>
     <td><span id="sprytextfield2">
       <label for="update_by"></label>
       <input name="update_by" type="text" id="update_by" size="40" value="<?=$_GET['doAction']  == "new" ? $_SESSION['sess_name'] :  $rs_edit['update_by'];?>">
@@ -73,12 +73,12 @@ $(function(){
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>วันที่ปรับปรุงล่าสุด : </td>
+    <td><strong>วันที่ปรับปรุงล่าสุด : </strong></td>
     <td><?=$_GET['doAction'] == "edit" ? showdateTimeThai($rs_edit['update_time']) : "N/A";?></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>URL :</td>
+    <td><strong>URL :</strong></td>
     <td><label for="url"></label>
       <input name="url" type="text" id="url" size="120" readonly="readonly" value="<?=$url;?><?=$portlet?>" class="textfieldValidState"></td>
   </tr>

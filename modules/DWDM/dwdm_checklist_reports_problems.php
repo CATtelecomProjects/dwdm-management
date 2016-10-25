@@ -47,7 +47,7 @@ $rs_data = $db->GetAll($sql);
  $sql_years = "SELECT DISTINCT
 						  YEAR(check_date ) AS years
 						FROM tbl_dwdm_checklist_detail
-						ORDER BY years ";
+						ORDER BY years DESC";
 $rs_years = $db->GetAll($sql_years);
 
 
@@ -73,7 +73,7 @@ $rs_years = $db->GetAll($sql_years);
  <?php
   $tbl->openTemplate();
   ?>
-   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id?>">
+   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id?>">
       <thead>
         <tr>
           <th width="13%">วันที่ตรวจสอบ</th>

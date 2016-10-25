@@ -18,6 +18,14 @@ $isOper = $auth->checkUserAuth(3);
 $sql_new = "SELECT id,content_desc FROM tbl_contents WHERE id = 3";
 $rs_new = $db->GetRow($sql_new);
 
+$sql_stat_yymm = "SELECT DISTINCT
+							  years,
+							  months
+							FROM tbl_dwdm_monthly_stats
+							ORDER BY years DESC,months DESC
+							LIMIT 0,1";
+$rs_stat_yymm = $db->GetRow($sql_stat_yymm);
+
 
 if($isAdmin){
 $sql_user = "SELECT
@@ -39,7 +47,8 @@ $sql_menu = "SELECT
 					FROM tbl_menu_group a
 					  LEFT JOIN tbl_menu b
 						ON a.mgroup_id = b.mgroup_id
-					GROUP BY b.mgroup_id";
+					GROUP BY b.mgroup_id
+					ORDER BY a.menu_order";
 $rs_menu = $db->GetAll($sql_menu);
 			   
 
@@ -138,10 +147,16 @@ if($isChief || $isOper){
 }
 
 ?>
+<script src="./js/highcharts/highcharts.js"></script>
+<script src="./js/highcharts/highcharts-3d.js"></script>
+<!--<script src="./js/highcharts/highcharts-3d.js"></script>-->
+<script src="./js/highcharts/exporting.js"></script>
 <script type="text/javascript">
 			$(function(){
 				// Accordion
-				$("#accordion").accordion({ header: "h3" });
+				$("#accordion").accordion({ 									
+									heightStyle: 'content'
+									});
 				
 				/************************************/
 				$('img').css('cursor','pointer');
@@ -154,13 +169,29 @@ if($isChief || $isOper){
 				});
 				});
 				
+				<?php
+				if($isChief || $isOper || $isAdmin){
+					?>
+				/*
+				$.get('./modules/DWDM/dwdm_monthly_reports_stats_graph_by_months.php?setModule=DWDM&setPage=dwdm_monthly_reports_stats&year=<?=$rs_stat_yymm['years']?>&month=<?=$rs_stat_yymm['months']?>&target=main', function(data){			
+				*/
+				$.get('./modules/SM/dwdm_sm_dashboard.php?'+$.now()+'&target=main', function(data){			
+							
+				
+					$('#graph').html(data);
+				});
+				<?php } ?>
+				
 			});
 </script>
-
 <table width="100%" border="0" cellpadding="0" cellspacing="2" class="ui-widget-content">
+<?php
+ if($isChief || $isOper || $isAdmin){
+	 ?>
   <tr>
     <td valign="top"><div  id="what_new" class="ui-state-focus ui-corner-all" style="padding: 0 0 0 1em;font-size:10px"><?=$rs_new['content_desc']?></div></td>
   </tr>
+  <?php } ?>
   <tr>
     <td valign="top"><div id="accordion">
     <?php
@@ -170,7 +201,6 @@ if($isChief || $isOper){
 		?>
     
         <h3><a href="#">Administrator Dashboard</a></h3>
-        <div>
           <table width="100%" border="0" cellspacing="2" cellpadding="0">
             <tr>
               <td width="23%" valign="top"><b>+ Groups &  Users (<?=count($rs_user);?>)</b>
@@ -188,7 +218,7 @@ if($isChief || $isOper){
 			}
 			?>
                 </ul></td>
-              <td width="27%" valign="top"><b>+ Menus  (<?=count($rs_menu);?>)</b>
+              <td width="27%" valign="top"><b>+ Menu  (<?=count($rs_menu);?>)</b>
                 <ul type="square">
                   <?php			
 			if(count($rs_menu)>0){
@@ -204,7 +234,6 @@ if($isChief || $isOper){
               <td width="50%" valign="top">&nbsp;</td>
             </tr>
           </table>
-        </div>
         
         <?php
 		
@@ -215,10 +244,9 @@ if($isChief || $isOper){
 	 if($isChief || $isOper){
 	 ?>   
         <h3><a href="#">รายการตรวจสอบระบบ DW/DM </a></h3>
-        <div>
           <table width="100%" border="0" cellspacing="2" cellpadding="0">
             <tr>
-              <td width="50%" valign="top">
+              <td width="40%" valign="top">
               <b>+ <a href="?setModule=DWDM&setPage=dwdm_checklist">ไปยังหน้าแรกตรวจสอบระบบ DW/DM</a> </b>    
               <p>         
               
@@ -229,7 +257,7 @@ if($isChief || $isOper){
 			  echo "<b>+ งานที่กำลัง$str (".count($arrKeyin).")</b>";
               echo " <ul type='square'>";
 			if(count($arrKeyin)>0){
-					 for($i=0;$i<count($arrKeyin);$i++){
+					 for($i=0;$i<10;$i++){
 						 echo $arrKeyin[$i];
 					 }
 			}else{
@@ -242,7 +270,7 @@ if($isChief || $isOper){
 			  echo "<b>+ งานที่ดำเนินการเสร็จแล้ว (".count($arrApprove).")</b>";
               echo " <ul type='square'>";
 			if(count($arrApprove)>0){
-					 for($i=0;$i<count($arrApprove);$i++){
+					 for($i=0;$i<10;$i++){
 						 echo $arrApprove[$i];
 					 }
 			}else{
@@ -256,10 +284,9 @@ if($isChief || $isOper){
 			?>
                 
                 </td>
-              <td width="50%" valign="top">&nbsp;</td>
+              <td width="60%" valign="top"></td>
             </tr>
           </table>
-        </div>
         <?php
 		
 	 }
@@ -270,21 +297,19 @@ if($isChief || $isOper){
 	  if($isAdmin || $isChief){
 		?> 		   
        <h3><a href="#">รายงานสรุปปัญหา DW/DM </a></h3>
-        <div>
          <ul type="square">
          	<li><a href="?setModule=DWDM&setPage=dwdm_problems">ทั้งหมด (<?=($rsProblem['countP']+$rsProblem['countS'])?>)</a></li>
             <li><a href="?setModule=DWDM&setPage=dwdm_problems&problem_status=P">กำลังดำเนินการ (<?=$rsProblem['countP']?>)</a></li>
             <li><a href="?setModule=DWDM&setPage=dwdm_problems&problem_status=S">ดำเนินการเสร็จแล้ว (<?=$rsProblem['countS']?>)</a></li>
          </ul>
-        </div>
        <?php
 	  		} 
 	  ?>
 
-    
-        
+  <?php  
+  if($isAdmin || $isChief || $isOper){
+      ?>
         <h3><a href="#">บริหารจัดการองค์ความรู้</a></h3>
-        <div>
           <table width="100%" border="0" cellspacing="2" cellpadding="0">
             <tr>
               <td width="50%" valign="top"><b>+ หมวดองค์ความรู้ (<?=count($rs_cate);?>)</b>
@@ -305,8 +330,10 @@ if($isChief || $isOper){
               <td width="50%" valign="top">&nbsp;</td>
             </tr>
           </table>
-        </div>
-
+<?php
+  }
+  ?>
       </div></td>
   </tr>
 </table>
+<div id="graph" style="min-width: 250px; min-height: 180px; margin: 0 auto"></div>

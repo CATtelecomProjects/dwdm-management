@@ -35,8 +35,8 @@ $rs = $db->GetRow($sql);
                             </tr>
                             <tr>
                               <td width="5%">&nbsp;</td>
-                              <td width="9%" valign="top">*ชื่อเว็บไซต์ :</td>
-                              <td width="86%" valign="top"><span id="sprytextfield1">
+                              <td width="14%" valign="top"><strong>*ชื่อเว็บไซต์ :</strong></td>
+                              <td width="81%" valign="top"><span id="sprytextfield1">
                                 <label>
                                   <input name="web_name" type="text" id="web_name" size="50" value="<?=$rs['website_name']?>" />
                           </label>
@@ -44,7 +44,7 @@ $rs = $db->GetRow($sql);
                             </tr>
                             <tr>
                               <td>&nbsp;</td>
-                              <td>ภาษา :</td>
+                              <td><strong>ภาษา :</strong></td>
                               <td><label for="lang"></label>
                                 <select name="lang" id="lang" class="input">
                                   <option value="th" <?=$rs['website_language'] == 'en' ? '' : 'selected';?>>ไทย</option>
@@ -53,7 +53,7 @@ $rs = $db->GetRow($sql);
                             </tr>
                             <tr>
                               <td>&nbsp;</td>
-                              <td>เลือกรูปแบบธีม :</td>
+                              <td><strong>เลือกรูปแบบธีม :</strong></td>
                               <td><select name="theme" id="theme" class="input">
                               <?php
 							  		  listComboBox($arr_theme , $rs['website_theme']);                              

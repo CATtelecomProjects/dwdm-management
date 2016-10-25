@@ -29,7 +29,7 @@ $rs_list = $db->GetAll($sql_list);
 
 $tbl->openTemplate();
   ?>
-   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id?>">
+   <table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id?>">
       <thead>
         <tr>
           <th width="52%">Login Date</th>
@@ -39,7 +39,7 @@ $tbl->openTemplate();
       <tbody>
         <?php for($i=0;$i<count($rs_list);$i++){ ?>
         <tr>
-          <td align="center"><?=showdateTimeThai($rs_list[$i]['login_date'])?></td>
+          <td align="center"><?=$rs_list[$i]['login_date']?></td>
           <td align="center"><?=$rs_list[$i]['counts']?></td>
         </tr>
         <?php } // End For ?>

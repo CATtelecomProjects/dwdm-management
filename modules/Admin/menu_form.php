@@ -8,6 +8,7 @@ if($_GET['doAction'] == "edit"){
 					 a.menu_id,
 					 a.menu_name_th,
 					 a.menu_name_en,
+					 a.menu_desc,
 					 a.menu_file,
 					 a.menu_param,
 					 a.mgroup_id,
@@ -72,10 +73,10 @@ $(function(){
 });
 </script>
   <form id="form_<?=$_GET['pages']?>" name="form_<?=$_GET['pages']?>" method="post" action="">
-  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+  <table width="100%" border="0" cellspacing="1" cellpadding="3">
       <tr>
         <td>&nbsp;</td>
-        <td valign="top">กลุ่มเมนู :<br />
+        <td width="93%" valign="top"><strong>กลุ่มเมนู :</strong><br />
           <select name="mgroup_id" id="mgroup_id" class="input">
           <?php
 		  $sql_mgroup = "SELECT * FROM tbl_menu_group ORDER BY mgroup_id";
@@ -83,7 +84,7 @@ $(function(){
 		  genOptionSelect($rs_mgroup,'mgroup_id','menu_group_th',$mgroup_id);
 		  ?>
         </select></td>
-        <td rowspan="6" align="left" valign="bottom"><div id="showIcons" style="display:none"> <br />
+        <td width="1%" rowspan="7" align="left" valign="bottom"><div id="showIcons" style="display:none"> <br />
           <table width="100%" border="0" cellpadding="0" cellspacing="1" class="ui-widget-content" align="center">
             <tr>
               <td><table width="100%" border="0" cellpadding="4" cellspacing="4" id="tblIcon">
@@ -110,8 +111,8 @@ $(function(){
         </div></td>
       </tr>
       <tr>
-        <td width="5%">&nbsp;</td>
-        <td valign="top">*ชื่อเมนู(ไทย) :<br />
+        <td width="6%">&nbsp;</td>
+        <td valign="top"><strong>*ชื่อเมนู(ไทย) :</strong><br />
           <span id="sprytextfield1">
           <label>
             <input name="menu_name_th" type="text" id="menu_name_th" size="30" value="<?=$rs_edit['menu_name_th']?>" />
@@ -120,7 +121,7 @@ $(function(){
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td>*ชื่อเมนู(อังกฤษ) :<br />
+        <td><strong>*ชื่อเมนู(อังกฤษ) :</strong><br />
           <span id="sprytextfield2">
           <label>
             <input name="menu_name_en" type="text" id="menu_name_en" size="30" value="<?=$rs_edit['menu_name_en']?>" />
@@ -129,7 +130,14 @@ $(function(){
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td>*ชื่อไฟล์เมนู :<br />
+        <td><strong>*รายละเอียดเมนู :<br>
+          <label for="menu_desc"></label>
+          <textarea name="menu_desc" id="menu_desc" cols="45" rows="5"><?=$rs_edit['menu_desc']?></textarea>
+        </strong></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><strong>*ชื่อไฟล์เมนู :</strong><br />
           <span id="sprytextfield3">
           <label>
             <input name="menu_file" type="text" id="menu_file" size="30" value="<?=$rs_edit['menu_file']?>"  />
@@ -138,14 +146,14 @@ $(function(){
       </tr>
       <tr>
         <td height="43">&nbsp;</td>
-        <td valign="top">Parameter (Optional) :<br>
+        <td valign="top"><strong>Parameter (Optional) :</strong><br>
           <label for="menu_param"></label>
         <input name="menu_param" type="text" id="menu_param" size="30" value="<?=$rs_edit['menu_param']?>" ></td>
       </tr>
       <tr>
       <td height="43">&nbsp;</td>
-      <td>ไอคอน : 
-      <?php
+      <td><strong>ไอคอน :</strong>
+<?php
 	  	 if($rs_edit['icon_name']==""){
 			$icon_name =	"icon-keyin.gif";
 			$icon_id = "3";
@@ -159,7 +167,7 @@ $(function(){
     </tr>
       <tr>
         <td>&nbsp;</td>
-        <td colspan="2">ลำดับเมนู :<br />
+        <td colspan="2"><strong>ลำดับเมนู :</strong><br />
           <span id="sprytextfield4">
           <input name="menu_order" type="text" id="menu_order" size="5" value="<?=$rs_edit['menu_order']?>" />
         <span class="textfieldInvalidFormatMsg">Invalid format.</span></span></td>

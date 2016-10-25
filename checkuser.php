@@ -4,11 +4,10 @@
 include('./includes/config.inc.php');
 include('./includes/Class/Main.Class.php');
 
+$db->debug=0;
 
 $main = new MainWeb();
 $rendom_text = $main->random_gen(64);
-
-
 
 if(!$_POST['doAction']) return;
 $username = $_POST['username'];
@@ -19,7 +18,6 @@ $rs_chk=$db->GetRow($sql_chk);
 //show_post();
 if(count($rs_chk)>0){
 	// หาหน่วยงานแรกที่สังกัดเพื่อกำหนดเป็นค่าแรกใน Session
-
 	
 	$_SESSION['sess_id'] = $rendom_text; // session_id();
 	$_SESSION['sess_user_id'] = $rs_chk['user_id'];

@@ -7,6 +7,7 @@ $action = $_POST['doAction'];
 $menu_id = $_POST['id'];
 $menu_name_th = $_POST['menu_name_th'];
 $menu_name_en = $_POST['menu_name_en'];
+$menu_desc = $_POST['menu_desc'];
 $menu_file = $_POST['menu_file'];
 $mgroup_id = $_POST['mgroup_id'];
 $menu_order = $_POST['menu_order'];
@@ -26,9 +27,10 @@ echo 	$target = "../Statistics/$menu_file";
 
 if($action == "new"){     
 		$sql = "INSERT INTO tbl_menu 
-								(  menu_name_th, menu_name_en,menu_file,menu_param,mgroup_id,menu_order,icon_id , update_by )
+								(  menu_name_th, menu_name_en,menu_desc,menu_file,menu_param,mgroup_id,menu_order,icon_id , update_by )
 					VALUES ( '$menu_name_th',
 								 ".chkNull($menu_name_en).", 
+								 '$menu_desc',
 								 ".chkNull($menu_file).",
 								 ".chkNull($menu_param).",
 								 ".chkNull($mgroup_id).", 
@@ -44,6 +46,7 @@ if($action == "new"){
 								SET   
 										menu_name_th = '$menu_name_th', 
 										menu_name_en=".chkNull($menu_name_en).",  
+										menu_desc =".chkNull($menu_desc).",  
 										menu_file=".chkNull($menu_file).",  
 										menu_param =".chkNull($menu_param).", 
 										mgroup_id = ".chkNull($mgroup_id).",  

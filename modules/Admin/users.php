@@ -62,7 +62,7 @@ $rs_list = $db->GetAll($sql_list);
     <td align="right" valign="top"><?=MENU_ACTION?></td>
   </tr>
 </table>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id;?>">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id;?>">
   <thead>
     <tr>
       <th width="9%"  class="header_height">จัดการ</th>
@@ -81,7 +81,7 @@ $rs_list = $db->GetAll($sql_list);
       <td><?=$rs_list[$i]['username']?></td>
       <td><?=base64_decode($rs_list[$i]['password'])?></td>
       <td><?=$rs_list[$i]['user_desc']?></td>
-      <td align="center"><?=showdateTimeThai($rs_list[$i]['update_time']);?></td>
+      <td align="center"><?=$rs_list[$i]['update_time'];?></td>
     </tr>
     <?php } // End for ?>
   </tbody>
@@ -89,8 +89,9 @@ $rs_list = $db->GetAll($sql_list);
 <?php 
 	$tbl->closeTable(); 
 ?>
-<div id="dialog-form-<?=$_GET['setPage'];?>" title="<?=$tbl->title?>" style="display:block"></div>
+<div id="dialog-form-<?=$_GET['setPage'];?>" style="display:block"></div>
 <div id="dialog-confirm" title="Comfirm!!">ยืนยันการลบข้อมูล ?</div>
 <input type="hidden" name="hidRadio" id="hidRadio" value="<?=$rs_list[0]['user_id']?>" />
 <input type="hidden" name="setModule" id="setModule" value="<?=$_GET['setModule']?>" />
 <input type="hidden" name="setPage" id="setPage" value="<?=$_GET['setPage']?>" />
+<input type="hidden" name="setTitle" id="setTitle" value="<?=$tbl->title?>" />

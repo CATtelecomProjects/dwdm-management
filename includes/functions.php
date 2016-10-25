@@ -49,14 +49,39 @@ global $db;
 	
 	$str = $param == "" ? " AND a.menu_file  = '$menu_file' " : "AND a.menu_param  = '$param' ";	
 
-	$sql_title = "SELECT a.menu_name_th , a.menu_name_en ,  b.menu_group_en ,b.menu_group_th
+	$sql_title = "SELECT a.menu_name_th , a.menu_name_en, a.menu_desc ,  b.menu_group_en ,b.menu_group_th
 						FROM tbl_menu a ,  tbl_menu_group b
 						WHERE a.mgroup_id = b.mgroup_id
 						$str ";
 	$rs_title = $db->GetRow($sql_title);
-	$title = $rs_title['menu_group_'.LANGUAGE]. " &gt; ".$rs_title['menu_name_'.LANGUAGE];
+	
+	$strTooltip = " &nbsp;[<i class='fa fa-question tooltips showMenuDesc' title='".$rs_title['menu_desc']."'></i>]" ;	
+	$title = $rs_title['menu_group_'.LANGUAGE]. " &gt; ".$rs_title['menu_name_'.LANGUAGE].$strTooltip;
 	return $title;	
 
+}
+
+// function hightlight word 
+
+function highlight($str, $keywords = ''){
+			$keywords = preg_replace('/\s\s+/', ' ', strip_tags(trim($keywords))); // filter
+			 
+			$style = 'highlight';
+			$style_i = 'highlight_important';
+			 
+			/* Apply Style */			 
+			$var = '';
+			 
+			foreach(explode(',', $keywords) as $keyword){
+			$replacement = "<span class='".$style."'>".$keyword."</span>";
+			$var .= $replacement." ";			 
+			$str = str_ireplace($keyword, $replacement, $str);
+			}
+			 
+			/* Apply Important Style */			 
+			$str = str_ireplace(rtrim($var), "<span class='".$style_i."'>".$keywords."</span>", $str);
+			 
+			return $str;
 }
 
 ###########################################
@@ -177,6 +202,13 @@ function pageBack($backStep, $err_msg)
 $arrPerPage = array(5=>5,10=>10,15=>15);
 
 
+
+#checkbox selected
+function setCheckBox($data, $checker){
+	 return $data == $checker?"checked":"";
+}
+
+
 # create listmenu/Combobox function
 function listComboBox($arrData , $selectedVal=""){
 		foreach($arrData as   $key =>$val ){
@@ -185,12 +217,16 @@ function listComboBox($arrData , $selectedVal=""){
 	}
 }
 
+
+
  //######################################################################
-function genOptionSelect($arrdata,$key,$value,$select="",$valueOption=""){
+function genOptionSelect($arrdata,$key,$value,$select="",$valueOption="", $nameOption = ""){
 		  for($i=0;$i<count($arrdata);$i++){ 
 				if($valueOption!=""){ $paramOption = "|".$arrdata[$i][$valueOption];}
+				$setOption = $nameOption != "" ? " : ".$arrdata[$i][$nameOption] : "";
+				
 					 $sel=$select == $arrdata[$i][$key]?"selected":""; 					  			
-						echo "<option value=\"".$arrdata[$i][$key].$paramOption."\"  $sel>".$arrdata[$i][$value]."</option>\n";				   
+						echo "<option value=\"".$arrdata[$i][$key].$paramOption."\"  $sel>".$arrdata[$i][$value].$setOption."</option>\n";				   
 		   }
 
 }

@@ -72,11 +72,11 @@ $rs_user_site =$db->GetAll($sql_user_site)
                           <td valign="top">&nbsp;</td>
                         </tr>
                         <tr>
-                          <td width="5%">&nbsp;</td>
-                          <td width="43%" valign="top">*ชื่อผู้ใช้งาน :<br />
+                          <td width="7%">&nbsp;</td>
+                          <td width="49%" valign="top"><strong>*ชื่อผู้ใช้งาน :</strong><br />
                           <input name="username" type="text" class="ui-state-disabled" id="username" value="<?=$rs_profile['username']?>" size="20" readonly="readonly" />
                           <input type="hidden" name="user_id" id="user_id" value="<?=$user_id?>" /></td>
-                          <td width="52%" rowspan="2" valign="top">กลุ่มผู้ใช้งาน :
+                          <td width="44%" rowspan="2" valign="top"><strong>กลุ่มผู้ใช้งาน :</strong>
                             <ul type="square">
                               <?php
 							// แสดงกลุ่มผู้ใช้งาน
@@ -88,7 +88,7 @@ $rs_user_site =$db->GetAll($sql_user_site)
                         </tr>
                         <tr>
                           <td>&nbsp;</td>
-                          <td>*รหัสผ่านเดิม :<br />
+                          <td><strong>*รหัสผ่านเดิม :</strong><br />
                             <span id="spryconfirm2">
                             <label for="old_password"></label>
                             <input name="old_password" type="password" id="old_password" tabindex="2" size="20" />
@@ -97,7 +97,7 @@ $rs_user_site =$db->GetAll($sql_user_site)
                         </tr>
                         <tr>
                           <td>&nbsp;</td>
-                          <td>*รหัสผ่านใหม่ :<br />
+                          <td><strong>*รหัสผ่านใหม่ :</strong><br />
                             <span id="sprytextfield2">
                             <label>
                               <input name="new_passwords" type="password" id="new_passwords" size="20"/>
@@ -107,7 +107,7 @@ $rs_user_site =$db->GetAll($sql_user_site)
                         </tr>
                         <tr>
                           <td>&nbsp;</td>
-                          <td>*ยืนยันรหัสผ่าน  :<br />
+                          <td><strong>*ยืนยันรหัสผ่าน  :</strong><br />
                             <span id="spryconfirm1">
                             <label for="repasswords"></label>
                             <input name="repasswords" type="password" id="repasswords" size="20"/>
@@ -120,7 +120,7 @@ $rs_user_site =$db->GetAll($sql_user_site)
                         </tr>
                         <tr>
                           <td>&nbsp;</td>
-                          <td>*รายละเอียดผู้ใช้งาน  :<br />
+                          <td><strong>*ชื่อ - นามสกุล :</strong><br />
                             <span id="sprytextfield1">
                             <input name="first_name" type="text"  id="first_name" value="<?=$rs_profile['user_desc']?>" size="30"/>
                           <span class="textfieldRequiredMsg">A value is required.</span></span></td>

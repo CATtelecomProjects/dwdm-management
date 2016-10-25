@@ -9,8 +9,10 @@ $(function(){
 		
 		var setPage =  $("#setPage").val();
 		
+		var setTitle =  $("#setTitle").val();
+		
 			// Setting Dialog
-		$.setDialog(setPage,800,630);
+		$.setDialog(setPage,800,630 ,setTitle);
 		
 		
 		$.MainAction(setModule,setPage,'cate_id');

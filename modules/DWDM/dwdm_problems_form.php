@@ -39,14 +39,14 @@ if($_GET['doAction'] == "edit"){
   <table width="100%" border="0" cellspacing="0" cellpadding="3">
     <tr>
       <td>&nbsp;</td>
-      <td width="32%">สถานะการดำเนินการ : <br>
+      <td width="32%"><strong>สถานะการดำเนินการ : </strong><br>
         <label>
           <select name="status" id="status">
             <option value="P" <?=$problem_status  == "P" ? "selected" : "";?>>กำลังดำเนินการ</option>
             <option value="S" <?=$problem_status  == "S" ? "selected" : "";?>>ดำเนินการเสร็จแล้ว</option>
           </select>
         </label></td>
-      <td width="50%" valign="top"> หมวดหมู่ : <br>
+      <td width="50%" valign="top"> <strong>หมวดหมู่ : </strong><br>
         <label for="cate_id"></label>
         <select name="cate_id" id="cate_id">       
         <?php
@@ -63,7 +63,7 @@ if($_GET['doAction'] == "edit"){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td colspan="2">*วันที่แจ้งปัญหา :<br>
+      <td colspan="2"><strong>*วันที่แจ้งปัญหา :</strong><br>
         <span id="sprytextfield3">
         <label for="problem_date_start"></label>
         <input name="problem_date_start" type="text" id="problem_date_start" value="<?=$problem_date_start ?>" size="19">
@@ -80,7 +80,7 @@ if($_GET['doAction'] == "edit"){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td colspan="2">*ชื่อผู้แจ้งปัญหา :<br />
+      <td colspan="2"><strong>*ชื่อผู้แจ้งปัญหา :</strong><br />
         <span id="sprytextfield2">
         <label>
           <input name="problem_owner" type="text" id="problem_owner" value="<?=$_GET['doAction'] == 'edit' ?   $rs_edit['problem_owner'] : $_SESSION['sess_name'];?>" size="40" />
@@ -95,7 +95,7 @@ if($_GET['doAction'] == "edit"){
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td colspan="2">วันที่ดำเนินการแล้วเสร็จ :<br>
+      <td colspan="2"><strong>วันที่ดำเนินการแล้วเสร็จ :</strong><br>
         <label for="problem_finish"></label>
         <input name="problem_date_finish" type="text" id="problem_date_finish" value="<?=$problem_date_finish?>" size="19">
         <input type="hidden" name="problem_date_finish_dis" id="problem_date_finish_dis"  value="<?=$problem_date_finish?>" /></td>
@@ -103,13 +103,13 @@ if($_GET['doAction'] == "edit"){
     </tr>
     <tr>
       <td width="14%">&nbsp;</td>
-      <td colspan="2"> วิธีแก้ปัญหา :<br>
+      <td colspan="2"> <strong>วิธีแก้ปัญหา :</strong><br>
       <textarea name="problem_solution" id="problem_solution" cols="100" rows="8"><?=htmlspecialchars($rs_edit['problem_solution'],ENT_QUOTES);?></textarea><textarea name="problem_solution_dis" id="problem_solution_dis" cols="100" rows="8"><?=htmlspecialchars($rs_edit['problem_solution'],ENT_QUOTES);?></textarea></td>
       <td valign="top">&nbsp;</td>
     </tr>
     <tr>
       <td>&nbsp;</td>
-      <td colspan="2">ชื่อผู้แก้ไขปัญหา :<br />
+      <td colspan="2"><strong>ชื่อผู้แก้ไขปัญหา :</strong><br />
       <input name="problem_by" type="text" id="problem_by" value="<?=$rs_edit['problem_by'];?>" size="40" /> <input type="hidden" name="problem_by_dis" id="problem_by_dis"  value="<?=$rs_edit['problem_by'];?>" /></td>
       <td valign="middle">&nbsp;</td>
     </tr>

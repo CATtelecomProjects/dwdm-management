@@ -1,0 +1,8 @@
+{
+    "require": {
+        "components/jquery": "^2.2",
+        "mpdf/mpdf": "^6.1",
+        "datatables/datatables": "^1.10",       
+        "fortawesome/font-awesome": "^4.6"
+    }
+}

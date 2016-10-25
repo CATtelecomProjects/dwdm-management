@@ -47,7 +47,7 @@ for($a=0;$a<count($rs_knowledge_auth);$a++){
   </tr>
 </table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display" id="<?=$tbl->id;?>">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id;?>">
   <thead>
     <tr>
       <th width="8%"  class="header_height">ลำดับ

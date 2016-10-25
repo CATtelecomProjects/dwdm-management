@@ -1,5 +1,5 @@
 <?php
-session_start();
+#session_start();
 $sess_user_id = $_SESSION['sess_user_id'];
 $db->debug = 0;
 
@@ -49,38 +49,7 @@ if(LANGUAGE == "en"){
 	$menu_lange = "menu_name_th";
 }
 
- 
- /* $sqlMenuGroup = "SELECT
-								 T.*
-							FROM (SELECT
-									   b.mgroup_id,
-									   b.menu_group_th,
-									   b.menu_group_en,									
-									   d.module_name,
-									   a.menu_order,
-									   c.icon_name
-								  FROM tbl_menu a,
-									   tbl_menu_group b,
-									   tbl_icons c,
-									   tbl_modules d
-								  WHERE a.mgroup_id = b.mgroup_id
-										 AND b.icon_id = c.icon_id
-										 AND b.modules_id = d.id
-										 AND menu_id IN(SELECT
-															 menu_id
-														FROM tbl_menu_auth
-														WHERE group_id IN(SELECT
-																			   group_id
-																		  FROM tbl_user_auth
-																		  WHERE user_id ='".$_SESSION['sess_user_id']."'))
-								  GROUP BY a.mgroup_id
-								  ORDER BY a.mgroup_id) AS T
-								 left join tbl_menu_group a
-								   on a.mgroup_id = t.mgroup_id
-							group by a.menu_order
-							order by a.menu_order";		
-							
-							*/					
+
  $sqlMenuGroup = "SELECT
 									   b.mgroup_id,
 									   b.menu_group_th,
@@ -127,7 +96,7 @@ for($i=0;$i<count($rsMenuGroup);$i++){
           
             <ul>
               <?php
-		 $sqlMenu = "SELECT a.menu_id ,a.menu_name_th ,a.menu_name_en,a.menu_file,a.menu_param,a.mgroup_id , b.icon_name 
+		 $sqlMenu = "SELECT a.menu_id ,a.menu_name_th ,a.menu_name_en,a.menu_desc, a.menu_file,a.menu_param,a.mgroup_id , b.icon_name 
 								FROM tbl_menu a , tbl_icons b
 								WHERE  a.icon_id = b.icon_id 
 								AND a.mgroup_id =".$rsMenuGroup[$i]['mgroup_id']."
@@ -153,8 +122,7 @@ for($i=0;$i<count($rsMenuGroup);$i++){
 								
 				?>
                  
-              <li><a class="menu_click"  ref="<?=$rsMenu[$j]['menu_id']?>" rev="?setModule=<?=$rsMenuGroup[$i]['module_name']?>&setPage=<?=$rsMenu[$j]['menu_file']?><?=$rsMenu[$j]['menu_param']?>" href="javascript:void(0)"><img src="./images/menu_actions/<?=$rsMenu[$j]['icon_name']?>"  border="0" align="absmiddle" /> <?=$rsMenu[$j][$menu_lange]?></a></li>
-
+              <li><a class="menu_click tooltips2"  ref="<?=$rsMenu[$j]['menu_id']?>" rev="?setModule=<?=$rsMenuGroup[$i]['module_name']?>&setPage=<?=$rsMenu[$j]['menu_file']?><?=$rsMenu[$j]['menu_param']?>" href="javascript:void(0)" title="<?=$rsMenu[$j]['menu_desc']?>"><img src="./images/menu_actions/<?=$rsMenu[$j]['icon_name']?>"  border="0" align="absmiddle" /> <?=$rsMenu[$j][$menu_lange]?></a></li>
               <?php	
 				}
 			}
@@ -171,7 +139,7 @@ for($i=0;$i<count($rsMenuGroup);$i++){
         
         <!-- Ending Page Content [menu nests within] --></td>
       <td width="17%" align="right" valign="middle" class="font-normal" >
-     <label for="select">Welcome : </label> <?=$_SESSION['sess_name'];?>
+     <label for="select">Welcome : </label> <?=isset($_SESSION['sess_bis_name']) ? $_SESSION['sess_bis_name'] : $_SESSION['sess_name'];?>
          <!--<select name="set_site_id" id="set_site_id">
         <?php
 			// แสดงค่าไซต์งานที่สังกัด

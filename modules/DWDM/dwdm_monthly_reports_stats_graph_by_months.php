@@ -13,6 +13,8 @@ $month = $_GET['month'];
 						ORDER BY MONTHS DESC";
 $rs_month = $db->GetAll($sql_month);
 
+if(!isset($_GET['target'])){
+
 echo "<table border='0' width='100%'>";
 echo "<tr>";
 echo "<td width='50%'>";
@@ -30,7 +32,8 @@ echo "<td width='50%' align='right'>";
 //echo $div_graph = "&nbsp;<span class='btnGraphM''> <button>กราฟรายเดือน</button></span>";
 echo "</tr>";
 echo "</table>";
-
+echo "    <hr>";
+ }
 
 
 // Get data
@@ -75,6 +78,7 @@ $(function () {
 			},
        chart: {
             type: 'pie',
+			backgroundColor:'rgba(255, 255, 255, 0.1)',
             options3d: {
                 enabled: true,
                 alpha: 45,
@@ -136,7 +140,8 @@ if(count($rs_data)<=0)  exit;
 				enabled:0
 			},
         chart: {
-            type: 'column'
+            type: 'column',
+			backgroundColor:'rgba(255, 255, 255, 0.1)'
         },
         title: {
             text: ''
@@ -224,7 +229,7 @@ if(count($rs_data)<=0)  exit;
 			 $.loading("load");
 
 			$.get('./modules/'+setModule+'/'+setPage+'_graph_by_months.php',		
-							{ doAction : 'new' , setModule : setModule , setPage : setPage , year  :  2015, month : $(this).val() },						
+							{ doAction : 'new' , setModule : setModule , setPage : setPage , year  :  '<?=$year?>', month : $(this).val() },						
 									function(data) {																						
 										$("#dialog-form-graph").html(data);												
 									}
@@ -267,8 +272,8 @@ if(count($rs_data)<=0)  exit;
     });
     </script>
 		
-        <hr>
-        <div id="graph_pie" style="min-width: 310px; height: 320px; margin: 0 auto"></div>
+    
+        <div id="graph_pie" style="min-width: 500px; height: 320px; margin: 0 auto"></div>
 
-        <div id="graph_column" style="min-width: 350px; height: 320px; margin: 0 auto"></div>
+        <div id="graph_column" style="min-width: 280px; height: 280px; margin: 0 auto"></div>
 

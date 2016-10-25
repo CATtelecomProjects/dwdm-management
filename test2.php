@@ -1,4 +1,21 @@
+<?php
+session_start();
+print "<pre>";
+print_r($_SESSION);
+print "</pre>";
+echo $url = "http://dw-webreport.cattelecom.com:7001/SASPortal/syndication.do?com.sas.portal.ItemId=Report%2Bomi%3A%2F%2FFoundation%2Freposname%3DFoundation%2FTransformation%3Bid%3DA5XM3OF3.B1001DF3";
+echo "<br>";
+echo $de = urldecode($url);
 
+echo "<br>";
+ $r = explode("com.sas.portal.ItemId=",$de) ;
+
+echo $r[1];
+
+
+
+
+?>
 <!DOCTYPE HTML>
 <html lang="th-th">
 <head>

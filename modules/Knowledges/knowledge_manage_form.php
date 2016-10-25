@@ -175,7 +175,7 @@ $(function(){
   <table width="100%" border="0" cellspacing="2" cellpadding="3">
     <tr>
       <td>&nbsp;</td>
-      <td width="98%" valign="top">หมวดหมู่ : <br>
+      <td width="98%" valign="top"><strong>หมวดหมู่ : </strong><br>
         <select name="cate_id" id="cate_id">
           <?php					  
 					  genOptionSelect($rs_knowledge,'id','name',$cate_id);
@@ -184,7 +184,7 @@ $(function(){
       </tr>
     <tr>
       <td>&nbsp;</td>
-      <td valign="top">*หัวข้อปัญหา :<br />
+      <td valign="top"><strong>*หัวข้อปัญหา :</strong><br />
         <span id="sprytextfield1">
         <label>
           <input name="issue_title" type="text" id="issue_title" size="100" value="<?=htmlspecialchars($rs_edit['issue_title'],ENT_QUOTES);?>" />
@@ -194,7 +194,7 @@ $(function(){
     </tr>
     <tr>
       <td width="2%">&nbsp;</td>
-      <td valign="top"> *วิธีแก้ไข / ข้อเสนอแนะ :<br>
+      <td valign="top"> <strong>*วิธีแก้ไข / ข้อเสนอแนะ :</strong><br>
         <span id="sprytextarea1">
           <label for="issue_desc"></label>
           <textarea name="issue_desc" id="issue_desc" cols="85" rows="9" class="jqte-test"><?=$rs_edit['issue_desc']?>
@@ -203,7 +203,7 @@ $(function(){
     </tr>
     <tr>
       <td height="40">&nbsp;</td>
-      <td valign="middle">*ชื่อผู้บันทึก :<br />
+      <td valign="middle"><strong>*ชื่อผู้บันทึก :</strong><br />
         <span id="sprytextfield2">
           <label>
             <input name="update_by" type="text" id="update_by" value="<?=$_GET['doAction'] == 'edit' ?   $rs_edit['update_by'] : $_SESSION['sess_name'];?>" size="40" />
@@ -212,7 +212,7 @@ $(function(){
     </tr>
     <tr>
       <td height="40">&nbsp;</td>
-      <td valign="middle">เผยแพร่ :<br>
+      <td valign="middle"><strong>เผยแพร่ :</strong><br>
         <label for="publish"></label>
         <select name="publish" id="publish">
           <option value="Y" selected <?=$rs_edit['publish'] == "Y" ? "selected" : "";?> >Yes</option>
@@ -231,7 +231,7 @@ $(function(){
   <div id="tabs-2">
     <div id="div_list_file"></div>
 <hr>
-        เลือกไฟล์ :<br />
+        <strong>เลือกไฟล์ :</strong><br />
   <form action="" method="post" enctype="multipart/form-data" name="form_upload" id="form_upload">
         <label for="fileupload"></label>
       <input name="docs_filename" type="file" class="required" id="docs_filename" size="50" />

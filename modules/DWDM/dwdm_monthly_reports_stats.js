@@ -9,7 +9,7 @@ $(function(){
 		
 		var setPage =  $("#setPage").val();
 		
-		$("#sel_years, #sel_months").css({"cursor":"pointer"});
+	//	$("#sel_years, #sel_months").css({"cursor":"pointer"});
 		
 		$('.button').button();
 		
@@ -46,23 +46,17 @@ $(function(){
 			
 			
 			
-			$(".btnGraphYear button:first").button({
+			/*$(".btnGraph2 button:first").button({
 				icons: {
 					primary: 'ui-icon-image'
 				}			
 				}).click(function(){
 				 $.loading("load");
-				 var d = new Date(),
-						//n = d.getMonth()+1;
-						y =  $("#hidYears").val();//d.getFullYear();
-			//	if(n<10) { n = "0"+n }		
 				
-				var m = $('#maxMonth').val();		
-						
 				 $.setDialog("graph",980,740);
 					$('#dialog-form-graph').dialog('open');	
-					$.get('./modules/'+setModule+'/'+setPage+'_graph_by_years.php',		
-							{  setModule : setModule , setPage : setPage , year : y , month :   m },						
+					$.get('./modules/'+setModule+'/'+setPage+'_graph_by_months_org.php',		
+							{  setModule : setModule , setPage : setPage },						
 									function(data) {																						
 										$("#dialog-form-graph").html(data);												
 									}
@@ -70,7 +64,7 @@ $(function(){
 							 $.loading("unload");
 						  });					
 						return false;
-			});	
+			});	*/
 					
 					
 		

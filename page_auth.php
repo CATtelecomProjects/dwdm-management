@@ -1,6 +1,6 @@
 <?php
 
-if(!($_GET['setPage'])){
+if(!isset($_GET['setPage'])){
 	$chkMenuAuth = "1";
 }else{
 

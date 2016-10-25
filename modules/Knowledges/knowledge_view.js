@@ -2,6 +2,18 @@
 $(function(){
 	
 			ajaxLoading();
+			
+			// modules = module name
+		// pages = page name
+		// select_id = selection id
+		var setModule = $("#setModule").val();
+		
+		var setPage =  $("#setPage").val();
+		
+		var setTitle =  $("#setTitle").val();
+		
+				// Setting Dialog
+		$.setDialog(setPage,820,620 ,setTitle);
 	
 /******************* End Delete ********************/
 		
@@ -13,28 +25,16 @@ $(function(){
 		
 		
 		$(".link").click(function(){
-					$('#dialog-knowledge_view').dialog('open');			
+					$('#dialog-form-knowledge_view').dialog('open');			
 					$.get('./modules/Knowledges/knowledge_view_detail.php',		
 							{ doAction : 'view', id : $(this).attr("ref")},						
 									function(data) {													
-										$("#dialog-knowledge_view").html(data);				
+										$("#dialog-form-knowledge_view").html(data);				
 										//$("input:radio[name=auth_id][disabled=false]:first").attr('checked', true);
 									}
 							)				
 						return false;
 				});
-		
-		
-		$("#dialog-knowledge_view").dialog({
-					autoOpen: false,
-					height: 680,
-					width: 820,
-					modal: true/*,
-					close: function( event, ui ) {
-						setTimeout("window.location.reload(true)",1000);	 
-				
-				} */
-		});
 		
 		
 		

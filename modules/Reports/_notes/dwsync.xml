@@ -5,4 +5,14 @@
 <file name="web_stats_by_date.php" server="10.32.13.45//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
 <file name="web_stats_by_menu.php" server="10.32.13.45//dwdm-management/" local="130706532000000000" remote="130706532000000000" />
 <file name="web_stats_by_users.php" server="10.32.13.45//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="web_stats_by_date.php" server="catbsc1//dwdm-management/" local="131003233200000000" remote="131003233200000000" />
+<file name="web_stats_by_menu.php" server="catbsc1//dwdm-management/" local="131003233200000000" remote="131003233200000000" />
+<file name="web_stats_by_users.php" server="catbsc1//dwdm-management/" local="131003233200000000" remote="131003233200000000" />
+<file name="web_stats.js" server="catbsc1//dwdm-management/" local="131003244600000000" remote="131003244600000000" />
+<file name="web_stats.js" server="catbsc1/dwdm-management/" local="131003244600000000" remote="131003244600000000" />
+<file name="web_stats_by_menu.php" server="catbsc1/dwdm-management/" local="131003233200000000" remote="131003233200000000" />
+<file name="web_stats_by_date.php" server="catbsc1/dwdm-management/" local="131003233200000000" remote="131003233200000000" />
+<file name="web_stats_by_users.php" server="catbsc1/dwdm-management/" local="131003233200000000" remote="131003233200000000" />
+<file name="web_stats.php" server="catbsc1//dwdm-management/" local="130706532000000000" remote="130706532000000000" />
+<file name="web_stats.php" server="catbsc1/dwdm-management/" local="130706532000000000" remote="130706532000000000" />
 </dwsync>

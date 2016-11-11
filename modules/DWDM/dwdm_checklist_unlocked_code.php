@@ -12,17 +12,14 @@ $db->debug = 0;
 //show_post();
 
 
-if($_POST['doAction'] == "set_status"){
-	 $sql = "UPDATE tbl_dwdm_checklist SET check_status = '$status' , unlock_desc = '$unlock_desc' WHERE check_id = $id ";
-
+if ($_POST['doAction'] == "set_status") {
+    $sql = "UPDATE tbl_dwdm_checklist SET check_status = '$status' , unlock_desc = '$unlock_desc' WHERE check_id = $id ";
 }
 
-	$result = $db->Execute($sql);
-	if($result){
-			echo  "1";
-	}else{
-			echo "0";
-			
+$result = $db->Execute($sql);
+if ($result) {
+    echo "1";
+} else {
+    echo "0";
 }
-
 ?>

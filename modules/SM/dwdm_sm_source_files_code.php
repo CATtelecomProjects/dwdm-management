@@ -20,74 +20,70 @@ $owner_name = $_POST['owner_name'];
 $remark = $_POST['remark'];
 $owner_name = $_POST['owner_name'];
 $source_type = $_POST['source_type'];
-$source_stauts = $_POST['source_stauts'] =="" ? "N" : $_POST['source_stauts'] ;
+$source_stauts = $_POST['source_stauts'] == "" ? "N" : $_POST['source_stauts'];
 
 //show_post();
-$db->debug =0;
+$db->debug = 0;
 
-if($action == "new"){     
-		$sql = "INSERT INTO tbl_sm_source_files 
-								( 
-									module_name,
-									source_name,
-									source_file_name,
-									source_file_desc,
-									frequency_of_data,
-									admin_division,
-									admin_section,
-									admin_name,
-									owner_division,
-									owner_section,
-									owner_name,
-									remark,
-									source_stauts,
-									source_type
-								 )
-					VALUES (  '$module_name',
-									'$source_name',
-									'$source_file_name',
-									'$source_file_desc',
-									'$frequency_of_data',
-									'$admin_division',
-									'$admin_section',
-									'$admin_name',
-									'$owner_division',
-									'$owner_section',
-									'$owner_name',
-									'$remark',
-									'$source_stauts',
-									'$source_type'
-								 );";
-		
-}else if($action == "edit"){ 
-		$sql = "UPDATE tbl_sm_source_files 
-								SET 
-									module_name = '$module_name',
-									source_name = '$source_name',
-									source_file_name = '$source_file_name',
-									source_file_desc = '$source_file_desc',
-									frequency_of_data = '$frequency_of_data',
-									admin_division = '$admin_division',
-									admin_section = '$admin_section',
-									admin_name = '$admin_name',
-									owner_division = '$owner_division',
-									owner_section = '$owner_section',
-									owner_name = '$owner_name',
-									remark = '$remark',
-									source_stauts  = '$source_stauts',
-									source_type = '$source_type'
-					WHERE source_id = $source_id";
-
-}else if($_GET['doAction'] == "delete"){
-		$sql = "DELETE FROM tbl_sm_source_files WHERE source_id = ".$_GET['id'];
+if ($action == "new") {
+    $sql = "INSERT INTO tbl_sm_source_files 
+                                        ( 
+                                                module_name,
+                                                source_name,
+                                                source_file_name,
+                                                source_file_desc,
+                                                frequency_of_data,
+                                                admin_division,
+                                                admin_section,
+                                                admin_name,
+                                                owner_division,
+                                                owner_section,
+                                                owner_name,
+                                                remark,
+                                                source_stauts,
+                                                source_type
+                                         )
+                VALUES (  '$module_name',
+                                                '$source_name',
+                                                '$source_file_name',
+                                                '$source_file_desc',
+                                                '$frequency_of_data',
+                                                '$admin_division',
+                                                '$admin_section',
+                                                '$admin_name',
+                                                '$owner_division',
+                                                '$owner_section',
+                                                '$owner_name',
+                                                '$remark',
+                                                '$source_stauts',
+                                                '$source_type'
+                                         );";
+} else if ($action == "edit") {
+    $sql = "UPDATE tbl_sm_source_files 
+                SET 
+                        module_name = '$module_name',
+                        source_name = '$source_name',
+                        source_file_name = '$source_file_name',
+                        source_file_desc = '$source_file_desc',
+                        frequency_of_data = '$frequency_of_data',
+                        admin_division = '$admin_division',
+                        admin_section = '$admin_section',
+                        admin_name = '$admin_name',
+                        owner_division = '$owner_division',
+                        owner_section = '$owner_section',
+                        owner_name = '$owner_name',
+                        remark = '$remark',
+                        source_stauts  = '$source_stauts',
+                        source_type = '$source_type'
+        WHERE source_id = $source_id";
+} else if ($_GET['doAction'] == "delete") {
+    $sql = "DELETE FROM tbl_sm_source_files WHERE source_id = " . $_GET['id'];
 }
 
-
-	$result = $db->Execute($sql);
-	if($result){
-			echo  "1";
-	}else{
-			echo "0";
+$result = $db->Execute($sql);
+if ($result) {
+    echo "1";
+} else {
+    echo "0";
 }
-
 ?>

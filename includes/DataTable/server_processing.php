@@ -17,7 +17,7 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Easy set variables
  */
- 
+
 
 
 // DB table to use
@@ -31,20 +31,20 @@ $primaryKey = 'rep_group_id';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-	array( 'db' => 'rep_group_id', 'dt' => 0 ),
-	array( 'db' => 'rep_group_name',  'dt' => 1 ),
-	array( 'db' => 'rep_group_type',   'dt' => 2 ),
-	array( 'db' => 'rep_group_used',     'dt' => 3 ),
-	array( 'db' => 'rep_group_orders',     'dt' => 4 ),
-	array( 'db' => 'update_time',     'dt' => 5 )
-	);
+    array('db' => 'rep_group_id', 'dt' => 0),
+    array('db' => 'rep_group_name', 'dt' => 1),
+    array('db' => 'rep_group_type', 'dt' => 2),
+    array('db' => 'rep_group_used', 'dt' => 3),
+    array('db' => 'rep_group_orders', 'dt' => 4),
+    array('db' => 'update_time', 'dt' => 5)
+);
 
 // SQL server connection information
 $sql_details = array(
-	'user' => 'catadmin',
-	'pass' => 'p@ssw0rd',
-	'db'   => 'dwdm_db',
-	'host' => 'localhost'
+    'user' => 'catadmin',
+    'pass' => 'p@ssw0rd',
+    'db' => 'dwdm_db',
+    'host' => 'localhost'
 );
 
 $module_name = $_GET['module_name'];
@@ -58,6 +58,6 @@ $whereAll = "module_name = '$module_name' ";
 require( 'ssp.class.php' );
 
 echo json_encode(
-	SSP::complex( $_GET, $sql_details, $table, $primaryKey, $columns , null , $whereAll )
+        SSP::complex($_GET, $sql_details, $table, $primaryKey, $columns, null, $whereAll)
 );
 

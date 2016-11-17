@@ -51,6 +51,7 @@ class ReadDir {
 
 #=====================================================
 // Function For get Disk Usage from Server DI & BI
+
     function readUsage($Date) {
 //$date = date('Y-m-d');
         $tmpDate = explode('-', $Date); // Convert dd-mm-yyyy  -> yyyy-mm-dd
@@ -67,8 +68,6 @@ class ReadDir {
         if (file_exists($files_DI)) { // &&  !file_exists($files_BI)  ) return false;
 // Read Files
             $lines_DI = @file($files_DI);
-
-
 
             // Loop through our array, show HTML source as HTML source; and line numbers too.
             // DI Logs
@@ -90,41 +89,25 @@ class ReadDir {
         }
 
 
-        /* print "<pre>";
-          print_r($data_DI);
-          print "</pre>"; */
-
-
+//         print "<pre>";
+//          print_r($data_DI);
+//          print "</pre>"; 
 // #$data_DI[row_no][array_order]
 //DI
-        $arrData['DI']['ftproot'] = trim(str_replace('%', '', $data_DI[15][9]));
-        $arrData['DI']['data'] = trim(str_replace('%', '', $data_DI[18][9]));
-        $arrData['DI']['data1'] = trim(str_replace('%', '', $data_DI[17][9]));
+        $arrData['DI']['ftproot'] = trim(str_replace('%', '', $data_DI[15][0]));
+        $arrData['DI']['data'] = trim(str_replace('%', '', $data_DI[18][0]));
+        $arrData['DI']['data1'] = trim(str_replace('%', '', $data_DI[17][0]));        
+        $arrData['DI']['data2'] =  trim(str_replace('%', '', $data_DI[16][0]));
+        $arrData['DI']['work'] = trim(str_replace('%', '', $data_DI[3][0]));
+        $arrData['DI']['archive'] = trim(str_replace('%', '', $data_DI[20][0]));       
+        $arrData['DI']['utilloc'] = trim(str_replace('%', '', $data_DI[5][0]));
+        $arrData['DI']['var'] = trim(str_replace('%', '', $data_DI[4][0]));
 
-        $tmpDIData2 = trim(str_replace('%', '', $data_DI[16][10]));
-        $arrData['DI']['data2'] = $tmpDIData2 == "" ? trim(str_replace('%', '', $data_DI[16][11])) : $tmpDIData2;
-
-
-        $tmpDIWork = trim(str_replace('%', '', $data_DI[3][9]));
-        $arrData['DI']['work'] = $tmpDIWork == "" ? trim(str_replace('%', '', $data_DI[3][10])) : $tmpDIWork;
-
-        $arrData['DI']['archive'] = trim(str_replace('%', '', $data_DI[20][9]));
-
-        $tmpDIutilloc = trim(str_replace('%', '', $data_DI[5][10]));
-        $arrData['DI']['utilloc'] = $tmpDIutilloc == "" ? trim(str_replace('%', '', $data_DI[5][11])) : $tmpDIutilloc;
-//$arrData['DI']['utilloc']  = trim(str_replace('%','',$data_DI[5][10]));
-
-        $arrData['DI']['var'] = trim(str_replace('%', '', $data_DI[4][9]));
-
-        //BI
-        $tmpBIData = trim(str_replace('%', '', $data_BI[16][9]));
-        $arrData['BI']['data'] = $tmpBIData == "" ? trim(str_replace('%', '', $data_BI[16][10])) : $tmpBIData;
-//$arrData['BI']['data']     =  trim(str_replace('%','',$data_BI[16][9])); 
-        $tmpBIWork = trim(str_replace('%', '', $data_BI[3][10]));
-        $arrData['BI']['work'] = $tmpBIWork == "/work" ? trim(str_replace('%', '', $data_BI[3][9])) : $tmpBIWork;
-//$arrData['BI']['work']    =  trim(str_replace('%','',$data_BI[3][9]));
-        $arrData['BI']['utilloc'] = trim(str_replace('%', '', $data_BI[6][10]));
-        $arrData['BI']['var'] = trim(str_replace('%', '', $data_BI[5][9]));
+        //BI      
+        $arrData['BI']['data'] = trim(str_replace('%', '', $data_BI[16][0]));       
+        $arrData['BI']['work'] = trim(str_replace('%', '', $data_BI[3][0]));
+        $arrData['BI']['utilloc'] = trim(str_replace('%', '', $data_BI[6][0]));
+        $arrData['BI']['var'] = trim(str_replace('%', '', $data_BI[5][0]));
 
         return $arrData;
     }

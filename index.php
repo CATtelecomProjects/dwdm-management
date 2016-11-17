@@ -74,10 +74,10 @@ if (!$_SESSION['sess_user_id']) {
         <link rel="stylesheet" type="text/css" href="vendor/fortawesome/font-awesome/css/font-awesome.min.css">
 
         <style>
-            img {
-                -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+/*            img {
+                -webkit-filter: grayscale(100%);  Chrome, Safari, Opera 
                 filter: grayscale(100%);
-            }
+            }*/
         </style>
 
     </head>

@@ -47,6 +47,7 @@ $sql_menu = "SELECT
 					FROM tbl_menu_group a
 					  LEFT JOIN tbl_menu b
 						ON a.mgroup_id = b.mgroup_id
+						WHERE b.menu_name_th <> '-'
 					GROUP BY b.mgroup_id
 					ORDER BY a.menu_order";
 $rs_menu = $db->GetAll($sql_menu);

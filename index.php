@@ -31,7 +31,7 @@ if (!$_SESSION['sess_user_id']) {
 <?= SITE_NAME; ?>
         </title>
           <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
-        <script src="vendor/components/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="vendor/components/jquery/jquery.min.js"></script>
 
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>-->
 <!-- <script src="vendor/components/jqueryui/jquery-ui.min.js"></script> -->

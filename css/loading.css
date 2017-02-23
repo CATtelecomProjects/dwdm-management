@@ -15,16 +15,16 @@
     height:     100%;
     width:      100%;
     background: rgba( 255, 255, 255, 0.9) 
-        url('../images/loading-gear.gif') 
-        50% 50% 
-        no-repeat;	
+                url('../images/loading-gear.gif') 
+                50% 50% 
+                no-repeat;	
 }
 
 /* When the body has the loading class, we turn
    the scrollbar off with overflow:hidden */
 body.loading {
     overflow: hidden;   
-
+	
 }
 
 /* Anytime the body has the loading class, our

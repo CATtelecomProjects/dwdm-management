@@ -151,7 +151,7 @@ $rs_module = $SM->listModules($sess_user_id);
             <td colspan="2"><strong>สถานะ :</strong> <br>
                 <!-- Switch -->
                 <div class="switch">
-                    <input type="checkbox" name="source_stauts" id="source_stauts" <?= setCheckBox($rs_edit['source_stauts'], 'Y'); ?> value="Y">
+                    <input type="checkbox" name="source_status" id="source_status" <?= setCheckBox($rs_edit['source_status'], 'Y'); ?> value="Y">
                     Active</div></td>
         </tr>
         <tr>

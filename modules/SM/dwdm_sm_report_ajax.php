@@ -1,10 +1,9 @@
 <?php
-
 @header('Content-Type: text/html; charset=utf-8');
 include("../../includes/DataTable/Class.ServerSide.php");
-
-$dtss = new DataTableSS();
-
+	
+$dtss  = new DataTableSS();
+	
 // DB table to use
 $dtss->table = 'tbl_sm_report';
 
@@ -16,18 +15,19 @@ $dtss->primaryKey = 'report_id';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $dtss->columns = array(
-    array('db' => 'report_id', 'dt' => 0),
-    array('db' => 'report_name', 'dt' => 1),
-    array('db' => 'report_desc', 'dt' => 2),
-    array('db' => 'report_source', 'dt' => 3),
-    array('db' => 'report_owner', 'dt' => 4),
-    array('db' => 'actived', 'dt' => 5),
-    array('db' => 'update_time', 'dt' => 6)
-);
-
+	array( 'db' => 'report_id', 'dt' => 0 ),
+	array( 'db' => 'report_name',  'dt' => 1 ),
+	array( 'db' => 'report_desc',  'dt' => 2 ),
+	array( 'db' => 'report_source',  'dt' => 3 ),
+	array( 'db' => 'report_owner',  'dt' => 4 ),	
+	array( 'db' => 'actived',   'dt' => 5),
+	array( 'db' => 'update_time',     'dt' =>6 )
+	);
+	
 $sub_module_id = $_GET['sub_module_id'];
-$dtss->whereAll = "sub_module_id = '$sub_module_id' ";
-$dtss->GET = $_GET;
+$dtss->whereAll = "sub_module_id = '$sub_module_id' ";	
+$dtss->GET = $_GET;	
 
-echo json_encode($dtss->Init());
+echo json_encode(	$dtss->Init());
+
 ?>

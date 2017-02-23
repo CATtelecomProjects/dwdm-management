@@ -16,7 +16,7 @@ $sql_mgroup = "SELECT * FROM tbl_menu_group ORDER BY menu_order";
 $rs_mgroup = $db->GetAll($sql_mgroup);
 
 //ถ้ามีการเลือกให้ where ตามค่าที่เลือก ถ้าไม่ ให้เอาค่า mgroup_id มา where
-$get_mgroup = $_GET['mgroup_id'] ? " " . $_GET['mgroup_id'] : $rs_mgroup[0]['mgroup_id'];
+$get_mgroup = $_GET['mgroup_id'] ? " ".$_GET['mgroup_id'] : $rs_mgroup[0]['mgroup_id'];
 
 // List Menu Group
 $sql_list = "SELECT
@@ -37,56 +37,58 @@ $sql_list = "SELECT
 				WHERE a.mgroup_id = $get_mgroup
 				ORDER BY a.menu_order  ";
 $rs_list = $db->GetAll($sql_list);
+
+
 ?>
-<script type="text/javascript" src="./modules/<?= $_GET['setModule'] ?>/<?= $_GET['setPage'] ?>.js"></script>
+<script type="text/javascript" src="./modules/<?=$_GET['setModule']?>/<?=$_GET['setPage']?>.js"></script>
 <table width="100%" border="0" cellspacing="2" cellpadding="0">
+  <tr>
+    <td align="left" valign="middle">กลุ่มเมนู :
+      <label>
+        <select name="mgroup_id" id="mgroup_id" class="input">
+          <?php					  
+					  genOptionSelect($rs_mgroup,'mgroup_id','menu_group_th',$_GET['mgroup_id']);
+		  ?>
+        </select>
+      </label></td>
+    <td align="right" valign="top"><?=MENU_ACTION?></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?=$tbl->id;?>">
+  <thead>
     <tr>
-        <td align="left" valign="middle">กลุ่มเมนู :
-            <label>
-                <select name="mgroup_id" id="mgroup_id" class="input">
-<?php
-genOptionSelect($rs_mgroup, 'mgroup_id', 'menu_group_th', $_GET['mgroup_id']);
-?>
-                </select>
-            </label></td>
-        <td align="right" valign="top"><?= MENU_ACTION ?></td>
+      <th width="5%"  class="header_height">จัดการ</th>
+      <th width="5%">ลำดับ</th>
+      <th width="19%">ชื่อเมนู (ไทย)</th>
+      <th width="17%">ชื่อเมนู (อังกฤษ)</th>
+       <th width="17%">รายละเอียดเมนู</th>
+      <th width="17%">ชื่อไฟล์เมนู</th>
+      <th width="13%">พารามิเตอร์</th>
+      <th width="7%">ไอคอน</th>
     </tr>
+  </thead>
+  <tbody>
+    <?php for($i=0;$i<count($rs_list);$i++){ ?>
+    <tr>
+      <td align="center" valign="top"><input type="radio" name="selID" id="selID_<?=$rs_list[$i]['menu_id']?>" value="<?=$rs_list[$i]['menu_id']?>" <?=$i==0?'checked':''?>/></td>
+      <td align="center" valign="top"><?=$rs_list[$i]['menu_order']?></td>
+      <td valign="top"><?=$rs_list[$i]['menu_name_th']?></td>
+     <td valign="top"><?=$rs_list[$i]['menu_name_en']?></td>
+       <td valign="top"><?=$rs_list[$i]['menu_desc']?></td>
+      <td valign="top"><?=$rs_list[$i]['menu_file']?></td>
+      <td valign="top"><?=$rs_list[$i]['menu_param']?></td>
+      <td align="center" valign="top"><img src='./images/menu_actions/<?=$rs_list[$i]['icon_name']?>'/></td>
+    </tr>
+    <?php } // End For ?>
+  </tbody>
 </table>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="display compact" id="<?= $tbl->id; ?>">
-    <thead>
-        <tr>
-            <th width="5%"  class="header_height">จัดการ</th>
-            <th width="5%">ลำดับ</th>
-            <th width="19%">ชื่อเมนู (ไทย)</th>
-            <th width="17%">ชื่อเมนู (อังกฤษ)</th>
-            <th width="17%">รายละเอียดเมนู</th>
-            <th width="17%">ชื่อไฟล์เมนู</th>
-            <th width="13%">พารามิเตอร์</th>
-            <th width="7%">ไอคอน</th>
-        </tr>
-    </thead>
-    <tbody>
-<?php for ($i = 0; $i < count($rs_list); $i++) { ?>
-            <tr>
-                <td align="center" valign="top"><input type="radio" name="selID" id="selID_<?= $rs_list[$i]['menu_id'] ?>" value="<?= $rs_list[$i]['menu_id'] ?>" <?= $i == 0 ? 'checked' : '' ?>/></td>
-                <td align="center" valign="top"><?= $rs_list[$i]['menu_order'] ?></td>
-                <td valign="top"><?= $rs_list[$i]['menu_name_th'] ?></td>
-                <td valign="top"><?= $rs_list[$i]['menu_name_en'] ?></td>
-                <td valign="top"><?= $rs_list[$i]['menu_desc'] ?></td>
-                <td valign="top"><?= $rs_list[$i]['menu_file'] ?></td>
-                <td valign="top"><?= $rs_list[$i]['menu_param'] ?></td>
-                <td align="center" valign="top"><img src='./images/menu_actions/<?= $rs_list[$i]['icon_name'] ?>'/></td>
-            </tr>
-<?php } // End For  ?>
-    </tbody>
-</table>
-<?php
-$tbl->closeTable();
+<?php 
+	$tbl->closeTable(); 
 ?>
-<div id="dialog-form-<?= $tbl->page; ?>" style="display:none"></div>
+<div id="dialog-form-<?=$tbl->page;?>" style="display:none"></div>
 <div id="dialog-confirm" title="Comfirm!!">ยืนยันการลบข้อมูล ?</div>
-<input type="hidden" name="hidRadio" id="hidRadio" value="<?= $rs_list[0]['menu_id'] ?>" />
-<input type="hidden" name="setModule" id="setModule" value="<?= $_GET['setModule'] ?>" />
-<input type="hidden" name="setPage" id="setPage" value="<?= $_GET['setPage'] ?>" />
-<input type="hidden" name="setTitle" id="setTitle" value="<?= $tbl->title ?>" />
+<input type="hidden" name="hidRadio" id="hidRadio" value="<?=$rs_list[0]['menu_id']?>" />
+<input type="hidden" name="setModule" id="setModule" value="<?=$_GET['setModule']?>" />
+<input type="hidden" name="setPage" id="setPage" value="<?=$_GET['setPage']?>" />
+<input type="hidden" name="setTitle" id="setTitle" value="<?=$tbl->title?>" />
 <div id="test"></div>

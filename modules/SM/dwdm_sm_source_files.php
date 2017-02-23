@@ -57,8 +57,9 @@ genOptionSelect($rs_module, 'module_name', 'module_name', $_GET['module_name'], 
                         <th width='7%' class="header_height">Manage</th>
                         <th width='13%'>Source Name</th>
                         <th width='19%'>Source file name</th>
-                        <th width='28%'>Source file desc</th>
+                        <th width='20%'>Source file desc</th>
                         <th width='10%'>Source Type</th>
+                         <th width='8%'>Status</th>
                         <th width='11%'>Frequency</th>
                         <th width='12%'>Update Time</th>
                     </tr>

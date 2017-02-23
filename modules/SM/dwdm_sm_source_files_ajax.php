@@ -20,8 +20,9 @@ $dtss->columns = array(
     array('db' => 'source_file_name', 'dt' => 2),
     array('db' => 'source_file_desc', 'dt' => 3),
     array('db' => 'source_type', 'dt' => 4),
-    array('db' => 'frequency_of_data', 'dt' => 5),
-    array('db' => 'update_time', 'dt' => 6)
+    array('db' => 'source_status', 'dt' => 5),
+    array('db' => 'frequency_of_data', 'dt' => 6),
+    array('db' => 'update_time', 'dt' => 7)
 );
 
 $module_name = $_GET['module_name'];

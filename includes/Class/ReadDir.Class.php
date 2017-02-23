@@ -69,6 +69,8 @@ class ReadDir {
 // Read Files
             $lines_DI = @file($files_DI);
 
+
+
             // Loop through our array, show HTML source as HTML source; and line numbers too.
             // DI Logs
             foreach ($lines_DI as $line_num => $line) {
@@ -92,6 +94,8 @@ class ReadDir {
 //         print "<pre>";
 //          print_r($data_DI);
 //          print "</pre>"; 
+
+
 // #$data_DI[row_no][array_order]
 //DI
         $arrData['DI']['ftproot'] = trim(str_replace('%', '', $data_DI[15][0]));

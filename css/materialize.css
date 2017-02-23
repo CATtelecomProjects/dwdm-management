@@ -5,221 +5,221 @@
      Switch
 ***************/
 .switch, .switch * {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
 }
 .switch label {
-    cursor: pointer;
+	cursor: pointer;
 }
 .switch label input[type=checkbox] {
-    opacity: 0;
-    width: 0;
-    height: 0;
+	opacity: 0;
+	width: 0;
+	height: 0;
 }
 .switch label input[type=checkbox]:checked + .lever {
-    background-color: #84c7c1;
+	background-color: #84c7c1;
 }
 .switch label input[type=checkbox]:checked + .lever:after {
-    background-color: #26a69a;
+	background-color: #26a69a;
 }
 .switch label .lever {
-    content: "";
-    display: inline-block;
-    position: relative;
-    width: 40px;
-    height: 15px;
-    background-color: #818181;
-    border-radius: 15px;
-    margin-right: 10px;
-    transition: background 0.3s ease;
-    vertical-align: middle;
-    margin: 0 16px;
+	content: "";
+	display: inline-block;
+	position: relative;
+	width: 40px;
+	height: 15px;
+	background-color: #818181;
+	border-radius: 15px;
+	margin-right: 10px;
+	transition: background 0.3s ease;
+	vertical-align: middle;
+	margin: 0 16px;
 }
 .switch label .lever:after {
-    content: "";
-    position: absolute;
-    display: inline-block;
-    width: 21px;
-    height: 21px;
-    background-color: #F1F1F1;
-    border-radius: 21px;
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
-    left: -5px;
-    top: -3px;
-    transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
+	content: "";
+	position: absolute;
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+	background-color: #F1F1F1;
+	border-radius: 21px;
+	box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+	left: -5px;
+	top: -3px;
+	transition: left 0.3s ease, background .3s ease, box-shadow 0.1s ease;
 }
-input[type=checkbox]:checked:not(:disabled) ~ .lever:active:after {
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 166, 154, 0.1);
+ input[type=checkbox]:checked:not(:disabled) ~ .lever:active:after {
+ box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(38, 166, 154, 0.1);
 }
-input[type=checkbox]:not(:disabled) ~ .lever:active:after {
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
+ input[type=checkbox]:not(:disabled) ~ .lever:active:after {
+ box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.08);
 }
 .switch label input[type=checkbox]:checked + .lever:after {
-    left: 24px;
+	left: 24px;
 }
 .switch input[type=checkbox][disabled] + .lever {
-    cursor: default;
+	cursor: default;
 }
 .switch label input[type=checkbox][disabled] + .lever:after, .switch label input[type=checkbox][disabled]:checked + .lever:after {
-    background-color: #BDBDBD;
+	background-color: #BDBDBD;
 }
 /***************
      Chip
 ***************/
 .chip {
-    display: inline-block;
-    height: 32px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.6);
-    line-height: 30px;
-    padding: 0 12px;
-    border-radius: 14px;
-    background-color: #e4e4e4;
+	display: inline-block;
+	height: 32px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.6);
+	line-height: 30px;
+	padding: 0 12px;
+	border-radius: 14px;
+	background-color: #e4e4e4;
 }
 .chip img {
-    float: left;
-    margin: 0 8px 0 -12px;
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
+	float: left;
+	margin: 0 8px 0 -12px;
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
 }
 .chip i.material-icons {
-    cursor: pointer;
-    float: right;
-    font-size: 14px;
-    line-height: 32px;
-    padding-left: 8px;
+	cursor: pointer;
+	float: right;
+	font-size: 14px;
+	line-height: 32px;
+	padding-left: 8px;
 }
 /***************
      materialboxed
 ***************/
 .materialboxed {
-    display: block;
-    cursor: -webkit-zoom-in;
-    cursor: zoom-in;
-    position: relative;
-    transition: opacity .4s;
+	display: block;
+	cursor: -webkit-zoom-in;
+	cursor: zoom-in;
+	position: relative;
+	transition: opacity .4s;
 }
 .materialboxed:hover {
-    will-change: left, top, width, height;
+	will-change: left, top, width, height;
 }
 .materialboxed:hover:not(.active) {
-    opacity: .8;
+	opacity: .8;
 }
 .materialboxed.active {
-    cursor: -webkit-zoom-out;
-    cursor: zoom-out;
+	cursor: -webkit-zoom-out;
+	cursor: zoom-out;
 }
 #materialbox-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #292929;
-    z-index: 999;
-    will-change: opacity;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #292929;
+	z-index: 999;
+	will-change: opacity;
 }
 .materialbox-caption {
-    position: fixed;
-    display: none;
-    color: #fff;
-    line-height: 50px;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 0% 15%;
-    height: 50px;
-    z-index: 1000;
-    -webkit-font-smoothing: antialiased;
+	position: fixed;
+	display: none;
+	color: #fff;
+	line-height: 50px;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	padding: 0% 15%;
+	height: 50px;
+	z-index: 1000;
+	-webkit-font-smoothing: antialiased;
 }
 /***************
      collection
 ***************/
 .collection {
-    margin: 0.5rem 0 1rem 0;
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-    cursor:pointer;
+	margin: 0.5rem 0 1rem 0;
+	border: 1px solid #e0e0e0;
+	border-radius: 2px;
+	overflow: hidden;
+	position: relative;
+	cursor:pointer;
 }
 .collection .collection-item {
-    background-color: #fff;
-    line-height: 1.2rem;
-    padding: 5px 5px;
-    margin: 0;
-    border-bottom: 1px solid #e0e0e0;
+	background-color: #fff;
+	line-height: 1.2rem;
+	padding: 5px 5px;
+	margin: 0;
+	border-bottom: 1px solid #e0e0e0;
 }
 .collection .collection-item.avatar {
-    min-height: 84px;
-    padding-left: 72px;
-    position: relative;
+	min-height: 84px;
+	padding-left: 72px;
+	position: relative;
 }
 .collection .collection-item.avatar .circle {
-    position: absolute;
-    width: 42px;
-    height: 42px;
-    overflow: hidden;
-    left: 15px;
-    display: inline-block;
-    vertical-align: middle;
+	position: absolute;
+	width: 42px;
+	height: 42px;
+	overflow: hidden;
+	left: 15px;
+	display: inline-block;
+	vertical-align: middle;
 }
 .collection .collection-item.avatar i.circle {
-    font-size: 18px;
-    line-height: 42px;
-    color: #fff;
-    background-color: #999;
-    text-align: center;
+	font-size: 18px;
+	line-height: 42px;
+	color: #fff;
+	background-color: #999;
+	text-align: center;
 }
 .collection .collection-item.avatar .title {
-    font-size: 16px;
+	font-size: 16px;
 }
 .collection .collection-item.avatar p {
-    margin: 0;
+	margin: 0;
 }
 .collection .collection-item.avatar .secondary-content {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+	position: absolute;
+	top: 16px;
+	right: 16px;
 }
 .collection .collection-item:last-child {
-    border-bottom: none;
+	border-bottom: none;
 }
 .collection .collection-item.active {
-    background-color: #26a69a;
-    color: #eafaf9;
+	background-color: #26a69a;
+	color: #eafaf9;
 }
 .collection .collection-item.active .secondary-content {
-    color: #fff;
+	color: #fff;
 }
 .collection .collection-item {
-    display: block;
-    transition: .25s;
-    text-indent:5px;
+	display: block;
+	transition: .25s;
+	text-indent:5px;
 }
 .collection .collection-item:not(.active):hover {
-    background-color: #EEE;
+	background-color: #EEE;
 }
 .collection.with-header .collection-header {
-    font-weight:bold;
-    background-color: #CCC;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 10px 15px;
+	font-weight:bold;
+	background-color: #CCC;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 10px 15px;
 }
 .collection.with-header .collection-item {
-    padding-left: 30px;
+	padding-left: 30px;
 }
 .collection.with-header .collection-item.avatar {
-    padding-left: 72px;
+	padding-left: 72px;
 }
 .secondary-content {
-    float: right;
-    color: #26a69a;
+	float: right;
+	color: #26a69a;
 }
 .collapsible .collection {
-    margin: 0;
-    border: none;
+	margin: 0;
+	border: none;
 }

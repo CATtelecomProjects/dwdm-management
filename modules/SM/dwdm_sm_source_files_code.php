@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 @session_start();
 include('../../includes/config.inc.php');
 
@@ -20,7 +20,7 @@ $owner_name = $_POST['owner_name'];
 $remark = $_POST['remark'];
 $owner_name = $_POST['owner_name'];
 $source_type = $_POST['source_type'];
-$source_stauts = $_POST['source_stauts'] == "" ? "N" : $_POST['source_stauts'];
+$source_status = $_POST['source_status'] == "" ? "N" : $_POST['source_status'];
 
 //show_post();
 $db->debug = 0;
@@ -40,7 +40,7 @@ if ($action == "new") {
                                                 owner_section,
                                                 owner_name,
                                                 remark,
-                                                source_stauts,
+                                                source_status,
                                                 source_type
                                          )
                 VALUES (  '$module_name',
@@ -55,7 +55,7 @@ if ($action == "new") {
                                                 '$owner_section',
                                                 '$owner_name',
                                                 '$remark',
-                                                '$source_stauts',
+                                                'source_status',
                                                 '$source_type'
                                          );";
 } else if ($action == "edit") {
@@ -73,7 +73,7 @@ if ($action == "new") {
                         owner_section = '$owner_section',
                         owner_name = '$owner_name',
                         remark = '$remark',
-                        source_stauts  = '$source_stauts',
+                        source_status  = 'source_status',
                         source_type = '$source_type'
         WHERE source_id = $source_id";
 } else if ($_GET['doAction'] == "delete") {

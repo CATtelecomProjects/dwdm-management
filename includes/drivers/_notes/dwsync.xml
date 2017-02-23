@@ -3,7 +3,10 @@
 <file name="adodb-mysql.inc.php" server="10.32.13.45//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
 <file name="adodb-mysqli.inc.php" server="10.32.13.45//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
 <file name="adodb-oci8.inc.php" server="10.32.13.45//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
-<file name="adodb-mysql.inc.php" server="catbsc1//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
-<file name="adodb-mysqli.inc.php" server="catbsc1//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
-<file name="adodb-oci8.inc.php" server="catbsc1//dwdm-management/" local="130533732000000000" remote="130533732000000000" />
+<file name="adodb-mysql.inc.php" server="catbsc1//dwdm-management/" local="131199876000000000" remote="131199876000000000" />
+<file name="adodb-mysqli.inc.php" server="catbsc1//dwdm-management/" local="131199876000000000" remote="131199876000000000" />
+<file name="adodb-oci8.inc.php" server="catbsc1//dwdm-management/" local="131199876000000000" remote="131199876000000000" />
+<file name="adodb-pdo.inc.php" server="catbsc1//dwdm-management/" local="131199876000000000" remote="131199876000000000" />
+<file name="adodb-pdo_mysql.inc.php" server="catbsc1//dwdm-management/" local="131199876000000000" remote="131199876000000000" />
+<file name="adodb-pdo_oci.inc.php" server="catbsc1//dwdm-management/" local="131199876000000000" remote="131199876000000000" />
 </dwsync>

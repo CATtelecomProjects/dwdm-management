@@ -10,9 +10,10 @@ $user = $_SESSION['sess_name'];
 // Update Config Table
 $sql = "UPDATE tbl_configs SET website_name = '$web_name',website_theme = '$theme', website_language= '$lang' , update_by = '$user' ;";
 $result = $db->Execute($sql);
-if ($result) {
-    echo "1";
-} else {
-    echo "0";
+if($result){
+		echo  "1";
+}else{
+		echo "0";
 }
+
 ?>
